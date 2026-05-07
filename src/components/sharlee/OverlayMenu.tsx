@@ -49,9 +49,7 @@ export const OverlayMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () 
         <a href="https://www.linkedin.com/in/pier-quartarella/" className="flex items-center gap-1 hover:opacity-50 transition-opacity uppercase text-xs tracking-widest">
           <ArrowUpRight size={14} /> linkedin
         </a>
-        <a href="https://t.me/Pier_Q" className="flex items-center gap-1 hover:opacity-50 transition-opacity uppercase text-xs tracking-widest">
-          <ArrowUpRight size={14} /> telegram
-        </a>
+        
       </div>
     </div>
   );

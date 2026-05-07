@@ -29,10 +29,8 @@ export const ContactSection = () => {
                 <ArrowUpRight size={24} className="text-foreground/40" />
                 linkedin
               </a>
-              <a href="https://t.me/Pier_Q" className="text-2xl md:text-4xl font-medium hover:text-foreground/60 transition-colors flex items-center gap-4">
-                <ArrowUpRight size={24} className="text-foreground/40" />
-                telegram
-              </a>
+              
+              
             </div>
           </div>
         </div>
