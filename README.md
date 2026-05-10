@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pierfilippo Quartarella — Portfolio
 
-## Getting Started
+Benvenuti nella repository del mio portfolio personale. Questo progetto è il mio "biglietto da visita" digitale, dove raccolgo i miei lavori, le mie competenze e la mia visione come sviluppatore.
 
-First, run the development server:
+L'obiettivo è creare un'esperienza utente fluida e visivamente curata, utilizzando le tecnologie più recenti del panorama web.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tecnologie Utilizzate
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Il progetto è costruito con un approccio moderno focalizzato su performance e scalabilità:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
+- **Linguaggio:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Componenti UI:** [shadcn/ui](https://ui.shadcn.com/) (basato su Radix UI)
+- **Icone:** [Lucide React](https://lucide.dev/)
+- **Tipografia:** Geist (Sans e Mono)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Struttura del Progetto
 
-## Learn More
+Il codice è organizzato per essere pulito e facilmente mantenibile:
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app/`: Rotte, layout e pagine dell'applicazione.
+- `src/components/`: Componenti React riutilizzabili e sezioni specifiche (Hero, About, Work, Contact).
+- `src/lib/`: Utility e configurazioni condivise.
+- `public/`: Asset statici e media.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Come Avviare il Progetto in Locale
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Se desideri esplorare il progetto sul tuo computer:
 
-## Deploy on Vercel
+1. **Clona la repository:**
+   ```bash
+   git clone https://github.com/pierquarta25/getpierfilippo.com.git
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Installa le dipendenze:**
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Avvia il server di sviluppo:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Apri il browser:**
+   Visita [http://localhost:3000](http://localhost:3000) per vedere il risultato.
+
+## 📬 Contatti e Social
+
+Se sei interessato a collaborare o vuoi semplicemente dare un'occhiata ai miei profili:
+
+- **Email:** [pier.quarta25@icloud.com](mailto:pier.quarta25@icloud.com)
+- **LinkedIn:** [Pierfilippo Quartarella](https://www.linkedin.com/in/pier-quartarella/)
+- **Instagram:** [@_pier.q_](https://www.instagram.com/_pier.q_/)
+- **GitHub:** [pierquarta25](https://github.com/pierquarta25)
+
+---
+*Realizzato con passione da Pierfilippo Quartarella.*
