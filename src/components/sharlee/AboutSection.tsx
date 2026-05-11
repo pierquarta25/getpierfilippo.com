@@ -9,10 +9,24 @@ export const AboutSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="min-h-screen py-32 px-8 md:px-24 bg-white dark:bg-black relative overflow-hidden flex items-center">
+    <section id="about" className="min-h-screen py-16 md:py-32 px-8 md:px-24 bg-white dark:bg-black relative overflow-hidden flex items-center">
       
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
         
+        {/* Image Content - 5 Columns - Mostrata prima su mobile */}
+        <div className="lg:col-span-5 flex items-center justify-center order-first lg:order-last">
+          <div className="relative w-full aspect-[4/5] bg-black/5 dark:bg-white/5 rounded-[40px] overflow-hidden group shadow-2xl">
+            <Image 
+              src="/media/pierfilippo-portrait.jpg"
+              alt="Pierfilippo Quartarella"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent dark:from-white/10 dark:to-transparent pointer-events-none" />
+          </div>
+        </div>
+
         {/* Text Content - 7 Columns */}
         <div className="lg:col-span-7 flex flex-col gap-12 text-left text-black dark:text-white">
           <div className="space-y-4">
@@ -32,7 +46,7 @@ export const AboutSection = () => {
                 <div className="p-2 bg-black/5 dark:bg-white/5 rounded-lg">
                   <CodeXml size={20} />
                 </div>
-                <span className="font-bold uppercase text-xs tracking-widest">Logic Optimization</span>
+                <span className="font-bold uppercase text-xs tracking-widest">{t('about.logic')}</span>
               </div>
               <ul className="text-[10px] font-mono space-y-2 opacity-50 uppercase tracking-tight">
                 <li>{`> React.js Spec / Aulab`}</li>
@@ -46,7 +60,7 @@ export const AboutSection = () => {
                 <div className="p-2 bg-black/5 dark:bg-white/5 rounded-lg">
                   <Dumbbell size={20} />
                 </div>
-                <span className="font-bold uppercase text-xs tracking-widest">Physical Performance</span>
+                <span className="font-bold uppercase text-xs tracking-widest">{t('about.performance')}</span>
               </div>
               <ul className="text-[10px] font-mono space-y-2 opacity-50 uppercase tracking-tight">
                 <li>{`> Sports Science Degree`}</li>
@@ -65,20 +79,6 @@ export const AboutSection = () => {
               <ArrowDown size={14} className="group-hover:translate-y-1 transition-transform" /> 
               {t('about.resume')}
             </a>
-          </div>
-        </div>
-        
-        {/* Image Content - 5 Columns */}
-        <div className="lg:col-span-5 flex items-center justify-center">
-          <div className="relative w-full aspect-[4/5] bg-black/5 dark:bg-white/5 rounded-[40px] overflow-hidden group shadow-2xl">
-            <Image 
-              src="/media/pierfilippo-portrait.jpg"
-              alt="Pierfilippo Quartarella"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent dark:from-white/10 dark:to-transparent pointer-events-none" />
           </div>
         </div>
       </div>
