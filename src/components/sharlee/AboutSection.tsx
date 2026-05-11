@@ -1,29 +1,84 @@
+'use client';
+
 import React from 'react';
-import { ArrowDown } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowDown, CodeXml, Dumbbell } from 'lucide-react';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export const AboutSection = () => {
+  const { t } = useLanguage();
+
   return (
-    <section id="about" className="min-h-screen py-32 px-8 md:px-24">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-        <div className="flex flex-col gap-8">
-          <h2 className="text-6xl md:text-8xl font-bold uppercase tracking-tighter border-b border-foreground/10 pb-4">
-            ABOUT
-          </h2>
-          <p className="text-xl md:text-2xl font-medium text-foreground/60 leading-relaxed max-w-xl">
-            Hey, my name is Lorem Ipsum and I use Lorem as my nickname across social medias. 
-            I&apos;m a lorem ipsum designer, lorem/ipsum designer &amp; lorem-ipsum lorem developer from Lorem. 
-            I&apos;m also passionate about lorem ipsum and make lorem ipsum and universes around what I listen to and I&apos;m always curious to learn more when it comes to new technologies and creative coding.
+    <section id="about" className="min-h-screen py-32 px-8 md:px-24 bg-white dark:bg-black relative overflow-hidden flex items-center">
+      
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
+        
+        {/* Text Content - 7 Columns */}
+        <div className="lg:col-span-7 flex flex-col gap-12 text-left text-black dark:text-white">
+          <div className="space-y-4">
+            <h2 className="text-6xl md:text-8xl font-bold uppercase tracking-tighter leading-none">
+              {t('about.title')}
+            </h2>
+          </div>
+
+          <p className="text-xl md:text-2xl font-medium text-black/60 dark:text-white/60 leading-relaxed max-w-2xl">
+            {t('about.bio')}
           </p>
-          <a href="#" className="flex items-center gap-2 font-bold hover:opacity-50 transition-opacity uppercase text-sm tracking-widest mt-4">
-            <ArrowDown size={18} /> resume
-          </a>
+
+          {/* Dual Column Performance Metrics */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 border-t border-black/10 dark:border-white/10">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 text-black dark:text-white">
+                <div className="p-2 bg-black/5 dark:bg-white/5 rounded-lg">
+                  <CodeXml size={20} />
+                </div>
+                <span className="font-bold uppercase text-xs tracking-widest">Logic Optimization</span>
+              </div>
+              <ul className="text-[10px] font-mono space-y-2 opacity-50 uppercase tracking-tight">
+                <li>{`> React.js Spec / Aulab`}</li>
+                <li>{`> Clean Architecture`}</li>
+                <li>{`> Full Stack Systems`}</li>
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 text-black dark:text-white">
+                <div className="p-2 bg-black/5 dark:bg-white/5 rounded-lg">
+                  <Dumbbell size={20} />
+                </div>
+                <span className="font-bold uppercase text-xs tracking-widest">Physical Performance</span>
+              </div>
+              <ul className="text-[10px] font-mono space-y-2 opacity-50 uppercase tracking-tight">
+                <li>{`> Sports Science Degree`}</li>
+                <li>{`> Discipline & Mindset`}</li>
+                <li>{`> Biomechanics Analysis`}</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-8 items-center">
+            <a 
+              href="/CV_Pierfilippo_Quartarella_2026.pdf" 
+              download 
+              className="group flex items-center gap-3 font-bold hover:opacity-50 transition-all uppercase text-[10px] tracking-[0.2em] py-4 px-8 border border-black/10 dark:border-white/10 rounded-full w-fit"
+            >
+              <ArrowDown size={14} className="group-hover:translate-y-1 transition-transform" /> 
+              {t('about.resume')}
+            </a>
+          </div>
         </div>
         
-        <div className="relative aspect-[4/5] bg-foreground/5 rounded-[40px] overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-tr from-foreground/10 to-transparent" />
-          {/* Placeholder for portrait */}
-          <div className="w-full h-full flex items-center justify-center text-foreground/20 font-bold text-4xl uppercase tracking-widest">
-            PORTRAIT
+        {/* Image Content - 5 Columns */}
+        <div className="lg:col-span-5 flex items-center justify-center">
+          <div className="relative w-full aspect-[4/5] bg-black/5 dark:bg-white/5 rounded-[40px] overflow-hidden group shadow-2xl">
+            <Image 
+              src="/media/pierfilippo-portrait.jpg"
+              alt="Pierfilippo Quartarella"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent dark:from-white/10 dark:to-transparent pointer-events-none" />
           </div>
         </div>
       </div>

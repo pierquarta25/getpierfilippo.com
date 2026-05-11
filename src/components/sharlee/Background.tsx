@@ -3,28 +3,40 @@ import React from 'react';
 export const Background = () => {
   return (
     <>
-      <div className="grain-overlay" />
-      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-[#f0f0f5]">
-        {/* Organic Blurred Shapes */}
+      {/* Texture Noise Overlay */}
+      <div className="fixed inset-0 z-[-5] opacity-[0.03] pointer-events-none dark:opacity-[0.05]" 
+        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} 
+      />
+
+      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-[#f8f8fa] dark:bg-[#050505]">
+        {/* Main Grid */}
         <div 
-          className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full opacity-40 blur-[120px]"
-          style={{ background: 'radial-gradient(circle, #a8ffb1 0%, transparent 70%)' }}
+          className="absolute inset-0 opacity-[0.15] dark:opacity-[0.1]"
+          style={{ 
+            backgroundImage: `
+              linear-gradient(to right, #888 1px, transparent 1px),
+              linear-gradient(to bottom, #888 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px'
+          }}
         />
+        
+        {/* Sub-grid (Millimetric) */}
         <div 
-          className="absolute top-[20%] right-[-10%] w-[50%] h-[50%] rounded-full opacity-30 blur-[120px]"
-          style={{ background: 'radial-gradient(circle, #ffe2a8 0%, transparent 70%)' }}
+          className="absolute inset-0 opacity-[0.05] dark:opacity-[0.03]"
+          style={{ 
+            backgroundImage: `
+              linear-gradient(to right, #888 1px, transparent 1px),
+              linear-gradient(to bottom, #888 1px, transparent 1px)
+            `,
+            backgroundSize: '10px 10px'
+          }}
         />
+
+        {/* Subtle Radial Glow to prevent excessive flatness */}
         <div 
-          className="absolute bottom-[-10%] left-[10%] w-[70%] h-[70%] rounded-full opacity-30 blur-[150px]"
-          style={{ background: 'radial-gradient(circle, #ffb1c1 0%, transparent 70%)' }}
-        />
-        <div 
-          className="absolute bottom-[10%] right-[10%] w-[60%] h-[60%] rounded-full opacity-40 blur-[120px]"
-          style={{ background: 'radial-gradient(circle, #b1e0ff 0%, transparent 70%)' }}
-        />
-        <div 
-          className="absolute top-[40%] left-[30%] w-[30%] h-[30%] rounded-full opacity-20 blur-[100px]"
-          style={{ background: 'radial-gradient(circle, #e2b1ff 0%, transparent 70%)' }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.4] dark:opacity-[0.2] blur-[120px]"
+          style={{ background: 'radial-gradient(circle, rgba(168, 255, 177, 0.1) 0%, transparent 70%)' }}
         />
       </div>
     </>

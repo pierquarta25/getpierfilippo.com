@@ -4,7 +4,7 @@ This is a Next.js project hosting Pierfilippo Quartarella's personal portfolio. 
 
 ## Critical Rules
 
-- **Project Design Document:** For every new feature or implementation, first create a project document in \`/docs\` named \`YYYY-MM-DD-feature-name.md\` describing the planned implementation. Wait for user confirmation before proceeding. Always check the current date for the filename. **Once the implementation is complete, update the document to reflect the work actually performed.**
+- **Project Design Document:** For every new feature or implementation, first create a project document in \`/docs\` named \`YYYY-MM-DD-HH-mm-ss-feature-name.md\` describing the planned implementation. Wait for user confirmation before proceeding. Always check the current date for the filename. 'prompts/' - Prompt history documentation with format 'YYYY-MM-DD-HH-mm-ss-topic-description.md **Once the implementation is complete, update the document to reflect the work actually performed.**
 - **Triple Option Mandate:** For every modification, adjustment, or proposal requested by the user, you must always provide at least 3 distinct options to allow for an informed decision.
 - **Junior-friendly Code:** Write clean, simple, and easy-to-understand code, suitable for junior developers.
 
