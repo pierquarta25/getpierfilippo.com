@@ -37,6 +37,13 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.social': 'SOCIAL MEDIA',
     'project.visit': 'Visita il sito',
     'project.back': 'Torna ai lavori',
+    'error.404.title': '404',
+    'error.404.subtitle': 'PAGINA NON TROVATA',
+    'error.404.description': 'La pagina che stai cercando sembra essere svanita nel nulla o non è mai esistita.',
+    'error.403.title': '403',
+    'error.403.subtitle': 'ACCESSO NEGATO',
+    'error.403.description': 'Non hai i permessi necessari per accedere a questa risorsa.',
+    'error.back': 'Torna alla Home',
   },
   EN: {
     'hero.title': 'SOLVING PROBLEMS',
@@ -64,6 +71,13 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.social': 'SOCIAL MEDIA',
     'project.visit': 'Visit site',
     'project.back': 'Back to work',
+    'error.404.title': '404',
+    'error.404.subtitle': 'PAGE NOT FOUND',
+    'error.404.description': 'The page you are looking for seems to have vanished or never existed.',
+    'error.403.title': '403',
+    'error.403.subtitle': 'ACCESS FORBIDDEN',
+    'error.403.description': 'You do not have the necessary permissions to access this resource.',
+    'error.back': 'Back to Home',
   }
 };
 
