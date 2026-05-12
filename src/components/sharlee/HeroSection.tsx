@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useLanguage } from '@/lib/LanguageContext';
 
 export const HeroSection = () => {
