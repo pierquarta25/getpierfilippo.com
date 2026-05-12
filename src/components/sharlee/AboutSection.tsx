@@ -12,15 +12,16 @@ export const AboutSection = () => {
     <section id="about" className="min-h-screen py-16 md:py-32 px-8 md:px-24 bg-white dark:bg-black relative overflow-hidden flex items-center">
       
       {/* Background Image - Solo Mobile */}
-      <div className="absolute inset-0 lg:hidden opacity-10 dark:opacity-20 pointer-events-none">
+      <div className="absolute inset-0 lg:hidden pointer-events-none">
         <Image 
           src="/media/pierfilippo-portrait.jpg"
           alt="Pierfilippo Quartarella Background"
           fill
-          className="object-cover grayscale"
+          className="object-cover grayscale opacity-30 dark:opacity-40"
           priority
         />
-        <div className="absolute inset-0 bg-white/60 dark:bg-black/60" />
+        {/* Overlay per la leggibilità del testo */}
+        <div className="absolute inset-0 bg-white/70 dark:bg-black/80" />
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full relative z-10">
