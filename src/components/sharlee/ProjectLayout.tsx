@@ -72,23 +72,8 @@ export const ProjectLayout = ({
 
       {/* Fully Adaptive Media Section */}
       {images.length > 0 && (
-        <div className="mb-12 md:mb-20 w-full">
-          {/* Mobile: Vertical Gallery */}
-          <div className="flex md:hidden flex-col gap-4">
-            {images.map((img, index) => (
-              <div key={index} className="border border-black/10 dark:border-white/10 p-1 bg-black/[0.02] dark:bg-white/[0.02] backdrop-blur-sm overflow-hidden w-full">
-                <img 
-                  src={img} 
-                  alt={`${title} - image ${index + 1}`} 
-                  className="w-full h-auto object-contain" 
-                  loading={index === 0 ? "eager" : "lazy"}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Desktop: Carousel */}
-          <div className="hidden md:block border border-black/10 dark:border-white/10 p-2 bg-black/[0.02] dark:bg-white/[0.02] backdrop-blur-sm overflow-hidden group relative w-full">
+        <div className="mb-16 md:mb-32 w-full">
+          <div className="border border-black/10 dark:border-white/10 p-1 md:p-2 bg-black/[0.02] dark:bg-white/[0.02] backdrop-blur-sm overflow-hidden group relative w-full">
             <Carousel 
               className="w-full" 
               opts={{ loop: true }}
@@ -98,7 +83,7 @@ export const ProjectLayout = ({
             >
               <CarouselContent className="-ml-0">
                 {images.map((img, index) => (
-                  <CarouselItem key={index} className="pl-0 flex justify-center items-center h-auto min-h-[400px]">
+                  <CarouselItem key={index} className="pl-0 flex justify-center items-center h-auto min-h-[300px] md:min-h-[400px]">
                     <div className="relative w-full flex items-center justify-center">
                       <div 
                         className="absolute inset-0 z-0 scale-110 blur-2xl opacity-10"
@@ -111,7 +96,8 @@ export const ProjectLayout = ({
                       <img 
                         src={img} 
                         alt={`${title} - image ${index + 1}`} 
-                        className="relative z-10 w-auto h-auto max-w-full max-h-[80vh] object-contain transition-transform duration-700 hover:scale-[1.01]" 
+                        className="relative z-10 w-auto h-auto max-w-full max-h-[60vh] md:max-h-[80vh] object-contain transition-transform duration-700 hover:scale-[1.01]" 
+                        loading={index === 0 ? "eager" : "lazy"}
                       />
                     </div>
                   </CarouselItem>
@@ -119,8 +105,14 @@ export const ProjectLayout = ({
               </CarouselContent>
               {images.length > 1 && (
                 <>
-                  <CarouselPrevious className="left-4 bg-black/20 hover:bg-black/40 dark:bg-white/10 dark:hover:bg-white/20 border-none backdrop-blur-md text-white" />
-                  <CarouselNext className="right-4 bg-black/20 hover:bg-black/40 dark:bg-white/10 dark:hover:bg-white/20 border-none backdrop-blur-md text-white" />
+                  <CarouselPrevious className="hidden md:flex left-4 bg-black/20 hover:bg-black/40 dark:bg-white/10 dark:hover:bg-white/20 border-none backdrop-blur-md text-white" />
+                  <CarouselNext className="hidden md:flex right-4 bg-black/20 hover:bg-black/40 dark:bg-white/10 dark:hover:bg-white/20 border-none backdrop-blur-md text-white" />
+                  {/* Progress Indicator for Mobile */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-20 md:hidden">
+                    {images.map((_, i) => (
+                      <div key={i} className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                    ))}
+                  </div>
                 </>
               )}
             </Carousel>
@@ -129,21 +121,24 @@ export const ProjectLayout = ({
       )}
 
       {/* Main Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-24">
-        <div className="lg:col-span-2 space-y-12 md:space-y-24">
-          <div className="space-y-6 md:space-y-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 md:gap-24">
+        <div className="lg:col-span-2 space-y-16 md:space-y-32">
+          <div className="space-y-8 md:space-y-12">
             <h2 className="text-xs md:text-sm font-mono uppercase tracking-widest text-black/40 dark:text-white/40">Overview</h2>
-            <p className="text-xl md:text-3xl text-black dark:text-white leading-relaxed font-light">
+            <p className="text-xl md:text-4xl text-black dark:text-white leading-relaxed font-light">
               {description}
             </p>
           </div>
           
           <div className="prose dark:prose-invert max-w-none 
             prose-headings:uppercase prose-headings:tracking-tight prose-headings:font-bold 
-            prose-p:text-black/70 dark:prose-p:text-white/70 prose-p:leading-relaxed prose-p:text-base md:prose-p:text-lg
-            prose-li:text-black/70 dark:prose-li:text-white/70 prose-li:text-base md:prose-li:text-lg
+            prose-headings:mt-16 md:prose-headings:mt-24 prose-headings:mb-8
+            prose-p:text-black/70 dark:prose-p:text-white/70 prose-p:leading-relaxed prose-p:text-lg md:prose-p:text-xl
+            prose-p:my-8 md:prose-p:my-12
+            prose-li:text-black/70 dark:prose-li:text-white/70 prose-li:text-lg md:prose-li:text-xl
+            prose-li:my-4
             prose-strong:text-black dark:prose-strong:text-white
-            border-t border-black/10 dark:border-white/10 pt-12 md:pt-16">
+            border-t border-black/10 dark:border-white/10 pt-16 md:pt-24">
             {children}
           </div>
         </div>
