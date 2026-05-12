@@ -37,19 +37,6 @@ export const HeroSection = () => {
   return (
     <section className="flex flex-col items-center justify-center px-8 text-center py-24 md:py-12 relative min-h-[80vh] md:min-h-[60vh] overflow-hidden">
       
-      {/* Mobile Background - Stile Riccardo */}
-      <div className="absolute inset-0 lg:hidden pointer-events-none overflow-hidden">
-        <Image 
-          src="/media/pierfilippo-portrait.jpg"
-          alt="Pierfilippo Quartarella Background"
-          fill
-          className="object-cover grayscale opacity-40 dark:opacity-30"
-          priority
-        />
-        {/* Overlay gradiente radiale per far emergere il testo e sfumare l'immagine */}
-        <div className="absolute inset-0 bg-radial-[at_50%_50%] from-transparent via-white/60 to-white dark:via-black/70 dark:to-black" />
-      </div>
-
       <div className="relative z-10 flex flex-col items-center">
         <h1 className="text-[clamp(2.5rem,8vw,5rem)] font-bold uppercase leading-[1.1] tracking-tighter max-w-5xl text-black dark:text-white">
           {t('hero.title')} <br />
