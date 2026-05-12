@@ -17,7 +17,7 @@ export const AboutSection = () => {
           src="/media/pierfilippo-portrait.jpg"
           alt="Pierfilippo Quartarella Background"
           fill
-          className="object-cover grayscale opacity-60 dark:opacity-30 transition-opacity duration-1000"
+          className="object-cover grayscale opacity-60 dark:opacity-20 transition-opacity duration-1000"
           priority
         />
         {/* Overlay gradiente radiale e lineare per far finire l'immagine in modo naturale */}
