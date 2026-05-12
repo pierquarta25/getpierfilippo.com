@@ -58,17 +58,37 @@ export const ProjectLayout = ({
             <span className="text-xs md:text-sm font-mono uppercase tracking-[0.3em] text-black/40 dark:text-white/40 mb-4 block">
               {category}
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold uppercase tracking-tighter leading-[0.9] text-black dark:text-white break-all md:break-normal py-2">
-              {title}
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold uppercase tracking-tighter leading-[0.9] text-black dark:text-white py-2 flex flex-wrap gap-x-2">
+              {title.split('.').map((part, i, arr) => (
+                <React.Fragment key={i}>
+                  <span>{part}</span>
+                  {i < arr.length - 1 && <span className="opacity-50">.</span>}
+                </React.Fragment>
+              ))}
             </h1>
           </div>
         </div>
       </div>
 
-      {/* Fully Adaptive Carousel Section with Autoplay */}
+      {/* Fully Adaptive Media Section */}
       {images.length > 0 && (
-        <div className="mb-12 md:mb-20 flex justify-center w-full">
-          <div className="border border-black/10 dark:border-white/10 p-1 md:p-2 bg-black/[0.02] dark:bg-white/[0.02] backdrop-blur-sm overflow-hidden group relative w-full">
+        <div className="mb-12 md:mb-20 w-full">
+          {/* Mobile: Vertical Gallery */}
+          <div className="flex md:hidden flex-col gap-4">
+            {images.map((img, index) => (
+              <div key={index} className="border border-black/10 dark:border-white/10 p-1 bg-black/[0.02] dark:bg-white/[0.02] backdrop-blur-sm overflow-hidden w-full">
+                <img 
+                  src={img} 
+                  alt={`${title} - image ${index + 1}`} 
+                  className="w-full h-auto object-contain" 
+                  loading={index === 0 ? "eager" : "lazy"}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: Carousel */}
+          <div className="hidden md:block border border-black/10 dark:border-white/10 p-2 bg-black/[0.02] dark:bg-white/[0.02] backdrop-blur-sm overflow-hidden group relative w-full">
             <Carousel 
               className="w-full" 
               opts={{ loop: true }}
@@ -78,7 +98,7 @@ export const ProjectLayout = ({
             >
               <CarouselContent className="-ml-0">
                 {images.map((img, index) => (
-                  <CarouselItem key={index} className="pl-0 flex justify-center items-center h-auto min-h-[300px]">
+                  <CarouselItem key={index} className="pl-0 flex justify-center items-center h-auto min-h-[400px]">
                     <div className="relative w-full flex items-center justify-center">
                       <div 
                         className="absolute inset-0 z-0 scale-110 blur-2xl opacity-10"
@@ -99,8 +119,8 @@ export const ProjectLayout = ({
               </CarouselContent>
               {images.length > 1 && (
                 <>
-                  <CarouselPrevious className="hidden md:flex left-4 bg-black/20 hover:bg-black/40 dark:bg-white/10 dark:hover:bg-white/20 border-none backdrop-blur-md text-white" />
-                  <CarouselNext className="hidden md:flex right-4 bg-black/20 hover:bg-black/40 dark:bg-white/10 dark:hover:bg-white/20 border-none backdrop-blur-md text-white" />
+                  <CarouselPrevious className="left-4 bg-black/20 hover:bg-black/40 dark:bg-white/10 dark:hover:bg-white/20 border-none backdrop-blur-md text-white" />
+                  <CarouselNext className="right-4 bg-black/20 hover:bg-black/40 dark:bg-white/10 dark:hover:bg-white/20 border-none backdrop-blur-md text-white" />
                 </>
               )}
             </Carousel>
