@@ -6,14 +6,14 @@ import Link from 'next/link';
 import { useLanguage } from '@/lib/LanguageContext';
 
 export const HeroSection = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const [typedText, setTypedText] = useState('');
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const words = ['FULL STACK DEVELOPER', 'FRONTEND DEVELOPER', 'BACKEND DEVELOPER', 'REACT SPECIALIST', 'SOFTWARE DEVELOPER', 'UX DEVELOPER'];
-
   useEffect(() => {
+    const words = ['FULL STACK DEVELOPER', 'FRONTEND DEVELOPER', 'BACKEND DEVELOPER', 'REACT SPECIALIST', 'SOFTWARE DEVELOPER', 'UX DEVELOPER'];
+    
     const timeout = setTimeout(() => {
       const currentWord = words[wordIndex];
       if (isDeleting) {

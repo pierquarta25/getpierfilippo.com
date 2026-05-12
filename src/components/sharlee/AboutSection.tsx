@@ -14,12 +14,13 @@ export const AboutSection = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
         
         {/* Image Content - 5 Columns - Mostrata prima su mobile */}
-        <div className="lg:col-span-5 flex items-center justify-center order-first lg:order-last lg:-translate-y-[2.8cm]">
+        <div className="lg:col-span-5 flex items-center justify-center order-first lg:order-last lg:-translate-y-[2cm]">
           <div className="relative w-full aspect-[4/5] bg-black/5 dark:bg-white/5 rounded-[40px] overflow-hidden group shadow-2xl">
             <Image 
               src="/media/pierfilippo-portrait.jpg"
               alt="Pierfilippo Quartarella"
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0"
               priority
             />

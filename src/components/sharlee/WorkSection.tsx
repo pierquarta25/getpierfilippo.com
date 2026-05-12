@@ -27,15 +27,15 @@ export const WorkSection = () => {
             <a 
               key={i}
               href={`/work/${project.slug}`}
-              className="group flex justify-between items-center py-8 border-b border-black/10 dark:border-white/10 hover:px-4 transition-all duration-300"
+              className="group flex flex-col md:flex-row md:items-center justify-start md:justify-between py-8 border-b border-black/10 dark:border-white/10 hover:px-4 transition-all duration-300 gap-2 md:gap-0"
             >
               <div className="flex items-center gap-4 text-black dark:text-white">
-                <ArrowRight className="opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300" />
-                <span className="text-3xl md:text-5xl font-medium tracking-tight group-hover:text-black/60 dark:group-hover:text-white/60 transition-colors uppercase">
+                <ArrowRight className="hidden md:block opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300" />
+                <span className="text-2xl md:text-5xl font-medium tracking-tight group-hover:text-black/60 dark:group-hover:text-white/60 transition-colors uppercase break-words">
                   {project.title}
                 </span>
               </div>
-              <span className="text-sm md:text-base font-medium text-black/40 dark:text-white/40 uppercase tracking-widest">
+              <span className="text-[10px] md:text-base font-medium text-black/40 dark:text-white/40 uppercase tracking-widest md:ml-4">
                 {project.category}
               </span>
             </a>

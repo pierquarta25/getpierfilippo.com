@@ -12,7 +12,7 @@ export default function PrestoPage() {
       <div className="space-y-6">
         <h3 className="text-xl font-bold uppercase tracking-tight">Esperienza Formativa</h3>
         <p className="text-foreground/70">
-          Questo progetto ha rappresentato il culmine del mio percorso formativo, permettendomi di gestire un'applicazione complessa con autenticazione, caricamento immagini e filtri di ricerca avanzati.
+          Questo progetto ha rappresentato il culmine del mio percorso formativo, permettendomi di gestire un&apos;applicazione complessa con autenticazione, caricamento immagini e filtri di ricerca avanzati.
         </p>
       </div>
     </ProjectLayout>
