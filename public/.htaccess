@@ -1,0 +1,11 @@
+# IONOS Next.js Static Export Routing
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+
+# If the requested filename is not a file...
+RewriteCond %{REQUEST_FILENAME} !-f
+# ...and is not a directory...
+RewriteCond %{REQUEST_FILENAME} !-d
+# ...rewrite all requests to index.html for client-side routing
+RewriteRule ^(.*)$ index.html [L]
