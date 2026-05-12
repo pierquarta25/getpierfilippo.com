@@ -11,10 +11,22 @@ export const AboutSection = () => {
   return (
     <section id="about" className="min-h-screen py-16 md:py-32 px-8 md:px-24 bg-white dark:bg-black relative overflow-hidden flex items-center">
       
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
+      {/* Background Image - Solo Mobile */}
+      <div className="absolute inset-0 lg:hidden opacity-10 dark:opacity-20 pointer-events-none">
+        <Image 
+          src="/media/pierfilippo-portrait.jpg"
+          alt="Pierfilippo Quartarella Background"
+          fill
+          className="object-cover grayscale"
+          priority
+        />
+        <div className="absolute inset-0 bg-white/60 dark:bg-black/60" />
+      </div>
+
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full relative z-10">
         
-        {/* Image Content - 5 Columns - Mostrata prima su mobile */}
-        <div className="lg:col-span-5 flex items-center justify-center order-first lg:order-last lg:-translate-y-[2cm]">
+        {/* Image Content - 5 Columns - Nascosta su mobile perché è nello sfondo */}
+        <div className="hidden lg:flex lg:col-span-5 items-center justify-center order-last lg:-translate-y-[2cm]">
           <div className="relative w-full aspect-[4/5] bg-black/5 dark:bg-white/5 rounded-[40px] overflow-hidden group shadow-2xl">
             <Image 
               src="/media/pierfilippo-portrait.jpg"
