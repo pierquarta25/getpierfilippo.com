@@ -44,7 +44,7 @@ export const ProjectLayout = ({
             <span className="text-sm font-mono uppercase tracking-[0.3em] text-black/40 dark:text-white/40 mb-4 block">
               {category}
             </span>
-            <h1 className="text-4xl md:text-8xl font-bold uppercase tracking-tighter leading-tight md:leading-none text-black dark:text-white break-all md:break-normal">
+            <h1 className="text-[clamp(2.25rem,10vw,4.5rem)] md:text-8xl font-bold uppercase tracking-tighter leading-[0.9] text-black dark:text-white break-words overflow-hidden py-2">
               {title}
             </h1>
           </div>
