@@ -12,33 +12,33 @@ export const AboutSection = () => {
     <section id="about" className="min-h-screen py-16 md:py-32 px-8 md:px-24 bg-white dark:bg-black relative overflow-hidden flex items-center">
       
       {/* Mobile Background - Stile Riccardo (Limited to top area) */}
-      <div className="absolute inset-x-0 top-0 h-[65%] lg:hidden pointer-events-none overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-[70%] lg:hidden pointer-events-none overflow-hidden">
         <Image 
           src="/media/pierfilippo-portrait.jpg"
           alt="Pierfilippo Quartarella Background"
           fill
-          className="object-cover grayscale opacity-40 dark:opacity-30"
+          className="object-cover grayscale opacity-60 dark:opacity-30 transition-opacity duration-1000"
           priority
         />
-        {/* Overlay gradiente radiale e lineare per far finire l'immagine alla linea */}
-        <div className="absolute inset-0 bg-radial-[at_50%_50%] from-transparent via-white/40 to-white dark:via-black/60 dark:to-black" />
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white dark:from-black to-transparent" />
+        {/* Overlay gradiente radiale e lineare per far finire l'immagine in modo naturale */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,transparent_0%,white_80%)] dark:bg-[radial-gradient(circle_at_50%_40%,transparent_0%,black_80%)]" />
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-white dark:from-black to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full relative z-10">
         
         {/* Image Content - Desktop Only */}
-        <div className="hidden lg:flex lg:col-span-5 items-center justify-center order-last lg:-translate-y-[2cm]">
-          <div className="relative w-full aspect-[4/5] bg-black/5 dark:bg-white/5 rounded-[40px] overflow-hidden group shadow-2xl">
+        <div className="hidden lg:flex lg:col-span-5 items-center justify-center order-last lg:-translate-y-8">
+          <div className="relative w-full aspect-[4/5] bg-black/5 dark:bg-white/5 rounded-[40px] overflow-hidden group shadow-2xl border border-black/5 dark:border-white/5">
             <Image 
               src="/media/pierfilippo-portrait.jpg"
               alt="Pierfilippo Quartarella"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0"
+              className="object-cover transition-all duration-700 group-hover:scale-105 grayscale hover:grayscale-0"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent dark:from-white/10 dark:to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent dark:from-white/5 dark:to-transparent pointer-events-none group-hover:opacity-0 transition-opacity" />
           </div>
         </div>
 
