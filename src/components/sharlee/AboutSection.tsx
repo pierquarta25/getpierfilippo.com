@@ -11,22 +11,9 @@ export const AboutSection = () => {
   return (
     <section id="about" className="min-h-screen py-16 md:py-32 px-8 md:px-24 bg-white dark:bg-black relative overflow-hidden flex items-center">
       
-      {/* Background Image - Solo Mobile */}
-      <div className="absolute inset-0 lg:hidden pointer-events-none">
-        <Image 
-          src="/media/pierfilippo-portrait.jpg"
-          alt="Pierfilippo Quartarella Background"
-          fill
-          className="object-cover grayscale opacity-30 dark:opacity-40"
-          priority
-        />
-        {/* Overlay per la leggibilità del testo */}
-        <div className="absolute inset-0 bg-white/70 dark:bg-black/80" />
-      </div>
-
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full relative z-10">
         
-        {/* Image Content - 5 Columns - Nascosta su mobile perché è nello sfondo */}
+        {/* Image Content - Desktop Only */}
         <div className="hidden lg:flex lg:col-span-5 items-center justify-center order-last lg:-translate-y-[2cm]">
           <div className="relative w-full aspect-[4/5] bg-black/5 dark:bg-white/5 rounded-[40px] overflow-hidden group shadow-2xl">
             <Image 
@@ -42,7 +29,23 @@ export const AboutSection = () => {
         </div>
 
         {/* Text Content - 7 Columns */}
-        <div className="lg:col-span-7 flex flex-col gap-12 text-left text-black dark:text-white">
+        <div className="lg:col-span-7 flex flex-col gap-12 text-left text-black dark:text-white relative">
+          
+          {/* Mobile Background Watermark - Posizionato solo dietro il testo */}
+          <div className="absolute inset-0 lg:hidden -z-10 pointer-events-none overflow-hidden rounded-3xl">
+            <div className="relative w-full h-full opacity-60 dark:opacity-40">
+              <Image 
+                src="/media/pierfilippo-portrait.jpg"
+                alt="Pierfilippo Quartarella Watermark"
+                fill
+                className="object-cover grayscale"
+                priority
+              />
+              {/* Sfumatura leggera per non rendere l'immagine troppo netta */}
+              <div className="absolute inset-0 bg-white/40 dark:bg-black/40" />
+            </div>
+          </div>
+
           <div className="space-y-4">
             <h2 className="text-6xl md:text-8xl font-bold uppercase tracking-tighter leading-none">
               {t('about.title')}
