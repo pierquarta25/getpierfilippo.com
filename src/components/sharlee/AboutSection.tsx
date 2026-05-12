@@ -11,8 +11,8 @@ export const AboutSection = () => {
   return (
     <section id="about" className="min-h-screen py-16 md:py-32 px-8 md:px-24 bg-white dark:bg-black relative overflow-hidden flex items-center">
       
-      {/* Mobile Background - Stile Riccardo (Full Section subtle portrait) */}
-      <div className="absolute inset-0 lg:hidden pointer-events-none overflow-hidden">
+      {/* Mobile Background - Stile Riccardo (Limited to top area) */}
+      <div className="absolute inset-x-0 top-0 h-[65%] lg:hidden pointer-events-none overflow-hidden">
         <Image 
           src="/media/pierfilippo-portrait.jpg"
           alt="Pierfilippo Quartarella Background"
@@ -20,8 +20,9 @@ export const AboutSection = () => {
           className="object-cover grayscale opacity-40 dark:opacity-30"
           priority
         />
-        {/* Overlay gradiente radiale per far emergere il testo e sfumare l'immagine */}
-        <div className="absolute inset-0 bg-radial-[at_50%_50%] from-transparent via-white/60 to-white dark:via-black/70 dark:to-black" />
+        {/* Overlay gradiente radiale e lineare per far finire l'immagine alla linea */}
+        <div className="absolute inset-0 bg-radial-[at_50%_50%] from-transparent via-white/40 to-white dark:via-black/60 dark:to-black" />
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white dark:from-black to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full relative z-10">
@@ -54,7 +55,7 @@ export const AboutSection = () => {
           </p>
 
           {/* Dual Column Performance Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 border-t border-black/10 dark:border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 border-t border-black/10 dark:border-white/10 relative">
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-black dark:text-white">
                 <div className="p-2 bg-black/5 dark:bg-white/5 rounded-lg">
