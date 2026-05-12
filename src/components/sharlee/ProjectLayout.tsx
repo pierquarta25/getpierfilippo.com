@@ -122,23 +122,24 @@ export const ProjectLayout = ({
 
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 md:gap-24">
-        <div className="lg:col-span-2 space-y-16 md:space-y-32">
-          <div className="space-y-8 md:space-y-12">
+        <div className="lg:col-span-2 space-y-12 md:space-y-20">
+          <div className="space-y-6 md:space-y-8">
             <h2 className="text-xs md:text-sm font-mono uppercase tracking-widest text-black/40 dark:text-white/40">Overview</h2>
             <p className="text-xl md:text-4xl text-black dark:text-white leading-relaxed font-light">
               {description}
             </p>
           </div>
           
-          <div className="prose dark:prose-invert max-w-none 
-            prose-headings:uppercase prose-headings:tracking-tight prose-headings:font-bold 
-            prose-headings:mt-16 md:prose-headings:mt-24 prose-headings:mb-8
-            prose-p:text-black/70 dark:prose-p:text-white/70 prose-p:leading-relaxed prose-p:text-lg md:prose-p:text-xl
-            prose-p:my-8 md:prose-p:my-12
-            prose-li:text-black/70 dark:prose-li:text-white/70 prose-li:text-lg md:prose-li:text-xl
-            prose-li:my-4
-            prose-strong:text-black dark:prose-strong:text-white
-            border-t border-black/10 dark:border-white/10 pt-16 md:pt-24">
+          <div className="max-w-none 
+            [&_h2]:uppercase [&_h2]:tracking-tight [&_h2]:font-bold 
+            [&_h2]:mt-16 md:[&_h2]:mt-24 [&_h2]:mb-8 [&_h2]:text-2xl md:[&_h2]:text-3xl
+            [&_h2:first-child]:mt-0
+            [&_p]:text-black/70 dark:[&_p]:text-white/70 [&_p]:leading-relaxed md:[&_p]:leading-loose [&_p]:text-lg md:[&_p]:text-xl
+            [&_p]:my-6 md:[&_p]:my-10
+            [&_li]:text-black/70 dark:[&_li]:text-white/70 [&_li]:text-lg md:[&_li]:text-xl
+            [&_li]:my-3 md:[&_li]:my-6
+            [&_strong]:text-black dark:[&_strong]:text-white
+            border-t border-black/10 dark:border-white/10 pt-12 md:pt-16">
             {children}
           </div>
         </div>
