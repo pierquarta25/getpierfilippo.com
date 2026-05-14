@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { useLanguage } from '@/lib/LanguageContext';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Image from 'next/image';
+import Autoplay from 'embla-carousel-autoplay';
 
 interface ProjectLayoutProps {
   title: string;
