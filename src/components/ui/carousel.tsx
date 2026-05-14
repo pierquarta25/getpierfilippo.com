@@ -13,7 +13,7 @@ type UseCarouselParameters = Parameters<typeof useEmblaCarousel>[0];
 
 interface CarouselProps {
   opts?: UseCarouselParameters;
-  plugins?: any[];
+  plugins?: UseCarouselParameters extends { plugins?: infer P } ? P : unknown[];
   orientation?: 'horizontal' | 'vertical';
   setApi?: (api: CarouselApi) => void;
 }
@@ -58,7 +58,7 @@ const Carousel = React.forwardRef<
         ...opts,
         axis: orientation === 'horizontal' ? 'x' : 'y',
       },
-      plugins
+      plugins as UseCarouselParameters['plugins']
     );
     const [canScrollPrev, setCanScrollPrev] = React.useState(false);
     const [canScrollNext, setCanScrollNext] = React.useState(false);
@@ -84,7 +84,11 @@ const Carousel = React.forwardRef<
 
     React.useEffect(() => {
       if (!api) return;
+      
+      // Initial state sync - disabled lint because it's required for Embla initialization
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       onSelect(api);
+      
       api.on('reInit', onSelect);
       api.on('select', onSelect);
       return () => {

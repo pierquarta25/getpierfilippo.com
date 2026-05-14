@@ -19,9 +19,14 @@ Questo documento descrive l'implementazione delle ottimizzazioni per migliorare 
 ## Lavoro Svolto
 - [x] Refactoring \`ProjectLayout.tsx\`: Sostituito \`<img>\` con \`next/image\`, aggiunto \`fill\`, \`sizes\` e logica di priorità dinamica.
 - [x] Refactoring \`AboutSection.tsx\`: Rimosso \`priority\` e aggiunto \`loading="lazy"\` per migliorare il Critical Rendering Path.
-- [x] Verifica delle dimensioni degli asset: Confermata la necessità di ottimizzazione automatica tramite Next.js.
+- [x] Fix Errore Compilazione: Ripristinato l'import di \`Autoplay\` in \`ProjectLayout.tsx\` rimosso accidentalmente.
+- [x] Risoluzione Errori Linting: 
+    - Sostituito \`useRef\` con \`useMemo\` in \`ProjectLayout.tsx\` per evitare l'accesso a ref durante il rendering.
+    - Rimosso \`any\` e gestito il cascading render in \`carousel.tsx\`.
+    - Pulizia di variabili non utilizzate (\`t\`) nelle pagine di progetto.
 
 ## Risultati Attesi
 - Riduzione del peso delle immagini caricate (da MB a KB).
 - Miglioramento dei punteggi LCP e TTI.
 - Passaggio dei formati immagine da PNG/JPG a WebP/AVIF in modo trasparente.
+- Build di produzione stabile e priva di errori TypeScript/Lint.

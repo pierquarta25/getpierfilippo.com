@@ -6,7 +6,7 @@ import { useLanguage } from '@/lib/LanguageContext';
 import ReactMarkdown from 'react-markdown';
 
 export default function GtFleetPage() {
-  const { language, t } = useLanguage();
+  const { language } = useLanguage();
 
   const seo = {
     IT: {

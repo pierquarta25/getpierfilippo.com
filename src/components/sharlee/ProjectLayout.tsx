@@ -37,8 +37,9 @@ export const ProjectLayout = ({
   const projectRole = role || 'Full Stack Developer';
   const projectYear = year || '2026';
 
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+  const plugin = React.useMemo(
+    () => Autoplay({ delay: 2000, stopOnInteraction: true }),
+    []
   );
 
   return (
@@ -78,9 +79,9 @@ export const ProjectLayout = ({
             <Carousel 
               className="w-full" 
               opts={{ loop: true }}
-              plugins={[plugin.current]}
-              onMouseEnter={() => plugin.current.stop()}
-              onMouseLeave={() => plugin.current.play()}
+              plugins={[plugin]}
+              onMouseEnter={() => plugin.stop()}
+              onMouseLeave={() => plugin.play()}
             >
               <CarouselContent className="-ml-0">
                 {images.map((img, index) => (
