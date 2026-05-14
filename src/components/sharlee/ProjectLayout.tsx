@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { useLanguage } from '@/lib/LanguageContext';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
+import Image from 'next/image';
 
 interface ProjectLayoutProps {
   title: string;
@@ -93,11 +93,14 @@ export const ProjectLayout = ({
                           backgroundPosition: 'center' 
                         }}
                       />
-                      <img 
+                      <Image 
                         src={img} 
                         alt={`${title} - image ${index + 1}`} 
-                        className="relative z-10 w-auto h-auto max-w-full max-h-[60vh] md:max-h-[80vh] object-contain transition-transform duration-700 hover:scale-[1.01]" 
-                        loading={index === 0 ? "eager" : "lazy"}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                        className="relative z-10 object-contain transition-transform duration-700 hover:scale-[1.01]" 
+                        priority={index === 0}
+                        loading={index === 0 ? undefined : "lazy"}
                       />
                     </div>
                   </CarouselItem>

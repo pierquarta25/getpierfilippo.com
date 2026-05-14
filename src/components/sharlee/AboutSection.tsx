@@ -18,7 +18,7 @@ export const AboutSection = () => {
           alt="Pierfilippo Quartarella Background"
           fill
           className="object-cover grayscale opacity-60 dark:opacity-20 transition-opacity duration-1000"
-          priority
+          loading="lazy"
         />
         {/* Overlay gradiente radiale e lineare per far finire l'immagine in modo naturale */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,transparent_0%,white_80%)] dark:bg-[radial-gradient(circle_at_50%_40%,transparent_0%,black_80%)]" />
@@ -36,7 +36,7 @@ export const AboutSection = () => {
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover transition-all duration-700 group-hover:scale-105 grayscale hover:grayscale-0"
-              priority
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent dark:from-white/5 dark:to-transparent pointer-events-none group-hover:opacity-0 transition-opacity" />
           </div>
