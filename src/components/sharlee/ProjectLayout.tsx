@@ -86,7 +86,7 @@ export const ProjectLayout = ({
               <CarouselContent className="-ml-0">
                 {images.map((img, index) => (
                   <CarouselItem key={index} className="pl-0 flex justify-center items-center h-auto min-h-[300px] md:min-h-[400px]">
-                    <div className="relative w-full flex items-center justify-center">
+                    <div className="relative w-full aspect-video flex items-center justify-center overflow-hidden">
                       <div 
                         className="absolute inset-0 z-0 scale-110 blur-2xl opacity-10"
                         style={{ 
