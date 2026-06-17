@@ -87,7 +87,7 @@ export const AboutSection = () => {
 
           <div className="flex flex-wrap gap-8 items-center">
             <a 
-              href="/CV_Pierfilippo_Quartarella_2026.pdf" 
+              href="/CV_Pierfilippo_Quartarella.pdf" 
               download 
               className="group flex items-center gap-3 font-bold hover:opacity-50 transition-all uppercase text-[10px] tracking-[0.2em] py-4 px-8 border border-black/10 dark:border-white/10 rounded-full w-fit"
             >
