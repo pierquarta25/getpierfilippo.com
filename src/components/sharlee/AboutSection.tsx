@@ -19,7 +19,7 @@ export const AboutSection = () => {
         {/* Mobile Background - Stile Riccardo (Limited to top area) */}
         <div className="absolute inset-x-0 top-0 h-[70%] lg:hidden pointer-events-none overflow-hidden">
           <Image 
-            src="/media/pierfilippo-portrait.jpg"
+            src="/media/pierfilippo-portrait.webp"
             alt="Pierfilippo Quartarella Background"
             fill
             className="object-cover grayscale opacity-60 dark:opacity-20 transition-opacity duration-1000"
@@ -36,7 +36,7 @@ export const AboutSection = () => {
           <div className="hidden lg:flex lg:col-span-5 items-center justify-center order-last lg:-translate-y-8">
             <div className="relative w-full aspect-[4/5] bg-black/5 dark:bg-white/5 rounded-[40px] overflow-hidden group shadow-2xl border border-black/5 dark:border-white/5">
               <Image 
-                src="/media/pierfilippo-portrait.jpg"
+                src="/media/pierfilippo-portrait.webp"
                 alt="Pierfilippo Quartarella"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
