@@ -23,7 +23,7 @@ export default function LeadGenPage() {
     IT: {
       category: "AI & Business Intelligence",
       description: "Un potente motore di Business Intelligence potenziato da Gemini AI. Automatizza la scoperta di nuove opportunità commerciali scansionando il web e qualificando i lead in base al settore, incrementando drasticamente l'efficienza del reparto commerciale.",
-      role: "Backend & AI Specialist",
+      role: "Full Stack Developer Intern · AI & Business Intelligence",
       year: "2026",
       status: "Completato",
       markdown: `
@@ -42,7 +42,7 @@ L'implementazione del sistema ha portato a un incremento del **197%** delle azie
     EN: {
       category: "AI & Business Intelligence",
       description: "A powerful Business Intelligence engine powered by Gemini AI. It automates the discovery of new commercial opportunities by scanning the web and qualifying leads by industry, drastically increasing sales department efficiency.",
-      role: "Backend & AI Specialist",
+      role: "Full Stack Developer Intern · AI & Business Intelligence",
       year: "2026",
       status: "Completed",
       markdown: `
@@ -81,6 +81,7 @@ The implementation of the system led to a **197%** increase in companies found f
         role={currentContent.role}
         year={currentContent.year}
         status={currentContent.status}
+        isInternal={true}
         images={projectImages}
       >
         <ReactMarkdown>{currentContent.markdown}</ReactMarkdown>

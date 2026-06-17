@@ -23,7 +23,7 @@ export default function IvecoScraperPage() {
     IT: {
       category: t('work.category.scraper'),
       description: "Script CLI professionale per il recupero massivo e l'analisi dei dati geografici e di contatto di tutta la rete di concessionari Iveco in Italia, sviluppato attraverso tecniche avanzate di reverse engineering.",
-      role: "Sviluppatore Backend & Automazione",
+      role: "Full Stack Developer Intern · Data Automation",
       year: "2026",
       status: "Completato",
       markdown: `
@@ -40,7 +40,7 @@ Il progetto risponde alla necessità di estrarre in modo rapido e strutturato le
     EN: {
       category: t('work.category.scraper'),
       description: "Professional CLI script for bulk retrieval and analysis of geographical and contact data for the entire Iveco dealership network in Italy, built using advanced reverse engineering.",
-      role: "Backend & Automation Developer",
+      role: "Full Stack Developer Intern · Data Automation",
       year: "2026",
       status: "Completed",
       markdown: `
@@ -72,6 +72,7 @@ The project fulfills the need to quickly extract structured contact, location, a
         role={currentContent.role}
         year={currentContent.year}
         status={currentContent.status}
+        isInternal={true}
         images={[]}
       >
         <ReactMarkdown>{currentContent.markdown}</ReactMarkdown>

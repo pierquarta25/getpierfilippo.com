@@ -10,9 +10,21 @@ export const ContactSection = () => {
   return (
     <section id="contact" className="min-h-screen py-16 md:py-32 px-8 md:px-24 flex flex-col justify-center">
       <div className="max-w-7xl mx-auto w-full">
-        <h2 className="text-6xl md:text-9xl font-bold uppercase tracking-tighter border-b border-black/10 dark:border-white/10 pb-8 mb-16 text-black dark:text-white">
+        <h2 className="text-6xl md:text-9xl font-bold uppercase tracking-tighter border-b border-black/10 dark:border-white/10 pb-8 mb-12 text-black dark:text-white">
           {t('contact.title')}
         </h2>
+
+        <div className="mb-16 max-w-2xl flex flex-col items-start gap-8 border-b border-black/10 dark:border-white/10 pb-12">
+          <p className="text-xl md:text-2xl text-black/60 dark:text-white/60 font-light leading-relaxed">
+            {t('contact.subtitle')}
+          </p>
+          <a 
+            href="mailto:info@getpierfilippo.com" 
+            className="inline-flex items-center justify-center gap-3 bg-black dark:bg-white text-white dark:text-black hover:opacity-90 transition-all px-8 py-4 text-xs font-mono font-bold tracking-[0.2em] uppercase rounded-none border border-black dark:border-white w-full sm:w-auto text-center"
+          >
+            {t('contact.button')}
+          </a>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32">
           <div className="flex flex-col gap-6">

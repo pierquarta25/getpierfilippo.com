@@ -23,7 +23,7 @@ export default function MacnilContactManagerPage() {
     IT: {
       category: t('work.category.mobile'),
       description: "Un'applicazione web serverless mobile-first che trasforma la fotocamera del telefono in uno scanner intelligente. Utilizza l'intelligenza artificiale di Google Gemini per analizzare i biglietti da visita, estrarne i contatti in formato strutturato e sincronizzarli all'istante su HubSpot CRM.",
-      role: "Sviluppatore Full-Stack (Stage)",
+      role: "Full Stack Developer Intern · AI Integration",
       year: "2026",
       status: "Completato",
       markdown: `
@@ -31,7 +31,7 @@ export default function MacnilContactManagerPage() {
 Sviluppato durante lo stage presso MacNil, questo applicativo risolve la necessità dei commerciali di digitalizzare rapidamente i contatti raccolti durante eventi e fiere direttamente dallo smartphone, eliminando il data-entry manuale.
 
 ## Funzionalità & Architettura
-- **Scansione Mobile-First:** Ottimizzazione dell'interfaccia e dei componenti per l'acquisizione fotografica istantanea tramite browser mobile.
+- **Scansione Mobile-First:** Alignment dell'interfaccia e dei componenti per l'acquisizione fotografica istantanea tramite browser mobile.
 - **Estrazione Dati con AI (Google Gemini):** Integrazione delle API di Gemini per il parsing OCR intelligente dell'immagine del biglietto da visita, restituendo un output JSON validato con nome, cognome, azienda, ruolo, e-mail e telefono.
 - **Architettura Serverless:** Backend costruito su **Supabase** sfruttando Row Level Security (RLS) per un controllo granulare e sicuro degli accessi.
 - **Sincronizzazione HubSpot:** Connessione bidirezionale in tempo reale che inserisce i contatti direttamente nel CRM di vendita aziendale.
@@ -41,7 +41,7 @@ Sviluppato durante lo stage presso MacNil, questo applicativo risolve la necessi
     EN: {
       category: t('work.category.mobile'),
       description: "A serverless mobile-first web application that turns the smartphone camera into an intelligent scanner. It utilizes Google Gemini AI to analyze business cards, extract structured contact details, and immediately sync them to HubSpot CRM.",
-      role: "Full-Stack Developer (Intern)",
+      role: "Full Stack Developer Intern · AI Integration",
       year: "2026",
       status: "Completed",
       markdown: `
@@ -74,6 +74,7 @@ Developed during the internship at MacNil, this application helps sales agents q
         role={currentContent.role}
         year={currentContent.year}
         status={currentContent.status}
+        isInternal={true}
         images={[]}
       >
         <ReactMarkdown>{currentContent.markdown}</ReactMarkdown>

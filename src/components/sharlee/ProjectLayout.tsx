@@ -18,6 +18,7 @@ interface ProjectLayoutProps {
   images?: string[];
   role?: string;
   year?: string;
+  isInternal?: boolean;
   children?: React.ReactNode;
 }
 
@@ -30,10 +31,11 @@ export const ProjectLayout = ({
   images = [],
   role,
   year,
+  isInternal,
   children 
 }: ProjectLayoutProps) => {
-  const { t } = useLanguage();
-  const projectStatus = status || (t('language') === 'IT' ? 'In fase di sviluppo' : 'In development');
+  const { t, language } = useLanguage();
+  const projectStatus = status || (language === 'IT' ? 'In fase di sviluppo' : 'In development');
   const projectRole = role || 'Full Stack Developer';
   const projectYear = year || '2026';
 
@@ -156,6 +158,13 @@ export const ProjectLayout = ({
               <div>
                 <span className="text-[10px] font-mono text-black/40 dark:text-white/40 uppercase block mb-1">Status</span>
                 <span className="text-sm uppercase font-medium text-black dark:text-white">{projectStatus}</span>
+                {isInternal && (
+                  <span className="text-[10px] text-black/50 dark:text-white/50 tracking-wider mt-1.5 block font-medium leading-snug">
+                    {language === 'IT' 
+                      ? 'Progetto interno · Non accessibile pubblicamente' 
+                      : 'Internal Project · Not Publicly Accessible'}
+                  </span>
+                )}
               </div>
               <div>
                 <span className="text-[10px] font-mono text-black/40 dark:text-white/40 uppercase block mb-1">Role</span>
