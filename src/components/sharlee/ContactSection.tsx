@@ -14,7 +14,7 @@ export const ContactSection = () => {
           {t('contact.title')}
         </h2>
 
-        <div className="mb-16 max-w-2xl border-b border-black/10 dark:border-white/10 pb-12">
+        <div className="mb-10 max-w-2xl border-b border-black/10 dark:border-white/10 pb-8">
           <p className="text-xl md:text-2xl text-black/60 dark:text-white/60 font-light leading-relaxed">
             {t('contact.subtitle')}
           </p>
