@@ -11,11 +11,11 @@ export default function GtFleetPage() {
   const seo = {
     IT: {
       title: "GT Fleet 365 | Configuratore Flotta con Integrazione HubSpot",
-      description: "Sviluppo di un configuratore di flotta dinamico integrato con HubSpot API. Frontend in React e backend in Laravel 11 per MacNil S.r.l."
+      description: "Sviluppo di una Single Page Application (SPA) per la configurazione interattiva e digitale dei veicoli aziendali, con sincronizzazione automatica dei lead su CRM HubSpot. Frontend in React 19 e backend in Laravel 13 per MacNil S.r.l."
     },
     EN: {
       title: "GT Fleet 365 | Fleet Configurator with HubSpot Integration",
-      description: "Development of a dynamic fleet configurator integrated with HubSpot API. Built with React frontend and Laravel 11 backend for MacNil S.r.l."
+      description: "Development of a Single Page Application (SPA) for the interactive and digital configuration of company fleets, with automatic lead synchronization to HubSpot CRM. Built with React 19 frontend and Laravel 13 backend for MacNil S.r.l."
     }
   };
 
@@ -58,11 +58,11 @@ The project was born from MacNil's need to automate and make more reliable the c
   const currentSeo = seo[language];
 
   const projectImages = [
-    '/work/gt-fleet265/media/work5.png',
-    '/work/gt-fleet265/media/work6_0.png',
-    '/work/gt-fleet265/media/work6_1.png',
-    '/work/gt-fleet265/media/work6_2.png',
-    '/work/gt-fleet265/media/work7.png',
+    '/work/gt-fleet365/media/work5.png',
+    '/work/gt-fleet365/media/work6_0.png',
+    '/work/gt-fleet365/media/work6_1.png',
+    '/work/gt-fleet365/media/work6_2.png',
+    '/work/gt-fleet365/media/work7.png',
   ];
 
   return (
@@ -74,7 +74,7 @@ The project was born from MacNil's need to automate and make more reliable the c
         title="GT Fleet 365"
         category={currentContent.category}
         description={currentContent.description}
-        tags={['React', 'Laravel 11', 'HubSpot API', 'Tailwind CSS']}
+        tags={['React 19', 'Laravel 13', 'HubSpot API', 'Tailwind CSS v4', 'Vite', 'Bootstrap 5']}
         role={currentContent.role}
         year={currentContent.year}
         status={currentContent.status}

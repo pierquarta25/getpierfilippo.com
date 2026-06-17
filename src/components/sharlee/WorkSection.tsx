@@ -6,12 +6,13 @@ import { useLanguage } from '@/lib/LanguageContext';
 
 export const WorkSection = () => {
   const { t } = useLanguage();
-  
+
   const projects = [
     { title: 'getpierfilippo.com', category: t('work.category.portfolio'), slug: 'getpierfilippo-com' },
+    { title: 'MacNil Contact Manager', category: t('work.category.mobile'), slug: 'macnil-contact-manager' },
+    { title: 'GtFleet365', category: t('work.category.fleet'), slug: 'gt-fleet365' },
+    { title: 'Iveco Scraper', category: t('work.category.scraper'), slug: 'iveco-scraper' },
     { title: 'LeadGen', category: t('work.category.software'), slug: 'leadgen' },
-    { title: 'Gt_Fleet265', category: t('work.category.fleet'), slug: 'gt-fleet265' },
-    { title: 'Presto.it', category: t('work.category.final'), slug: 'presto-it' },
   ];
 
   return (
@@ -21,10 +22,10 @@ export const WorkSection = () => {
           <h2 className="text-6xl md:text-8xl font-bold uppercase tracking-tighter text-black dark:text-white">{t('work.title')}</h2>
           <span className="text-xl font-medium text-black/40 dark:text-white/40">{projects.length}</span>
         </div>
-        
+
         <div className="flex flex-col">
           {projects.map((project, i) => (
-            <a 
+            <a
               key={i}
               href={`/work/${project.slug}`}
               className="group flex flex-col md:flex-row md:items-center justify-start md:justify-between py-8 border-b border-black/10 dark:border-white/10 hover:px-4 transition-all duration-300 gap-2 md:gap-0"
