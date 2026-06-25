@@ -38,7 +38,11 @@ export const TopBar = () => {
         <div className="flex h-16">
           {/* Brand/Logo Cell */}
           <div className="flex items-center px-6 border-r border-black/10 dark:border-white/10">
-            <Link href="/" className="w-10 h-10 flex items-center justify-center hover:opacity-50 transition-opacity text-black dark:text-white">
+            <Link 
+              href="/" 
+              aria-label="Home" 
+              className="w-10 h-10 flex items-center justify-center hover:opacity-50 transition-opacity text-black dark:text-white"
+            >
               <Logo />
             </Link>
           </div>
