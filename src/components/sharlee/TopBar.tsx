@@ -81,8 +81,9 @@ export const TopBar = () => {
             <button 
               onClick={() => setIsMenuOpen(true)}
               className="flex items-center gap-2 px-4 py-2 hover:bg-black/5 dark:hover:bg-white/5 transition-colors rounded-full"
+              aria-label={t('nav.menu') || 'MENU'}
             >
-              <Menu size={18} />
+              <Menu size={18} aria-hidden="true" />
               <span className="text-[10px] font-mono font-bold tracking-[0.2em] uppercase">{t('nav.menu') || 'MENU'}</span>
             </button>
           </div>
