@@ -50,9 +50,9 @@ export const AboutSection = () => {
           {/* Text Content - 7 Columns */}
           <div className="lg:col-span-7 flex flex-col gap-12 text-left text-black dark:text-white">
             <div className="space-y-4">
-              <h2 className="text-6xl md:text-8xl font-bold uppercase tracking-tighter leading-none">
+              <h1 className="text-6xl md:text-8xl font-bold uppercase tracking-tighter leading-none">
                 {t('about.title')}
-              </h2>
+              </h1>
             </div>
 
             <div className="text-base md:text-lg font-normal text-black/70 dark:text-white/70 leading-relaxed max-w-2xl space-y-6 [&_strong]:text-black dark:[&_strong]:text-white [&_strong]:font-semibold">

@@ -10,9 +10,9 @@ export const ContactSection = () => {
   return (
     <section id="contact" className="min-h-screen py-16 md:py-32 px-8 md:px-24 flex flex-col justify-center">
       <div className="max-w-7xl mx-auto w-full">
-        <h2 className="text-6xl md:text-9xl font-bold uppercase tracking-tighter border-b border-black/10 dark:border-white/10 pb-8 mb-12 text-black dark:text-white">
+        <h1 className="text-6xl md:text-9xl font-bold uppercase tracking-tighter border-b border-black/10 dark:border-white/10 pb-8 mb-12 text-black dark:text-white">
           {t('contact.title')}
-        </h2>
+        </h1>
 
         <div className="mb-10 max-w-2xl border-b border-black/10 dark:border-white/10 pb-8">
           <p className="text-xl md:text-2xl text-black/60 dark:text-white/60 font-light leading-relaxed">

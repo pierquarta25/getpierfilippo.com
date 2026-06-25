@@ -19,7 +19,7 @@ export const WorkSection = () => {
     <section id="work" className="min-h-screen py-16 md:py-32 px-8 md:px-24">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-baseline border-b border-black/10 dark:border-white/10 pb-4 mb-8">
-          <h2 className="text-6xl md:text-8xl font-bold uppercase tracking-tighter text-black dark:text-white">{t('work.title')}</h2>
+          <h1 className="text-6xl md:text-8xl font-bold uppercase tracking-tighter text-black dark:text-white">{t('work.title')}</h1>
           <span className="text-xl font-medium text-black/40 dark:text-white/40">{projects.length}</span>
         </div>
 

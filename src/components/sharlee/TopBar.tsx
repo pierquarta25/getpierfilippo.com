@@ -92,6 +92,7 @@ export const TopBar = () => {
             <button 
               onClick={() => setLanguage(language === 'EN' ? 'IT' : 'EN')}
               className="text-[10px] font-mono font-bold tracking-widest hover:opacity-50 transition-opacity text-black dark:text-white"
+              aria-label={language === 'EN' ? 'Cambia lingua in Italiano' : 'Change language to English'}
             >
               [{language}]
             </button>
