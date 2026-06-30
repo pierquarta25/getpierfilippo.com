@@ -35,7 +35,7 @@ export const Background = () => {
 
         {/* Subtle Radial Glow to prevent excessive flatness */}
         <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.4] dark:opacity-[0.2] blur-[120px]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.4] dark:opacity-[0.2]"
           style={{ background: 'radial-gradient(circle, rgba(168, 255, 177, 0.1) 0%, transparent 70%)' }}
         />
       </div>

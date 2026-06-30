@@ -31,7 +31,7 @@ export const Footer = () => {
 
   return (
     <footer className="py-12 px-8 text-center flex flex-col items-center gap-6 text-black dark:text-white">
-      <div className="text-xs font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40">
+      <div className="text-xs font-bold uppercase tracking-[0.2em] text-black/60 dark:text-white/60">
         © {new Date().getFullYear()} PIERFILIPPO — ALL RIGHTS RESERVED
       </div>
       <div className="flex items-center gap-6">
@@ -41,7 +41,7 @@ export const Footer = () => {
             href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors duration-300"
+            className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors duration-300"
             aria-label={social.name}
           >
             <svg

@@ -7,18 +7,28 @@ import { useLanguage } from '@/lib/LanguageContext';
 
 export const HeroSection = () => {
   const { t } = useLanguage();
-  const [typedText, setTypedText] = useState('');
+  const words = ['FULL STACK DEVELOPER', 'FRONTEND DEVELOPER', 'BACKEND DEVELOPER', 'REACT SPECIALIST', 'SOFTWARE DEVELOPER', 'UX DEVELOPER'];
+  const [typedText, setTypedText] = useState(words[0]);
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
-    const words = ['FULL STACK DEVELOPER', 'FRONTEND DEVELOPER', 'BACKEND DEVELOPER', 'REACT SPECIALIST', 'SOFTWARE DEVELOPER', 'UX DEVELOPER'];
-    
+    const initialDelay = setTimeout(() => {
+      setHasStarted(true);
+      setIsDeleting(true);
+    }, 2000);
+    return () => clearTimeout(initialDelay);
+  }, []);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
     const timeout = setTimeout(() => {
       const currentWord = words[wordIndex];
       if (isDeleting) {
         setTypedText(currentWord.substring(0, typedText.length - 1));
-        if (typedText.length === 0) {
+        if (typedText.length <= 1) { // <= 1 to avoid empty string
           setIsDeleting(false);
           setWordIndex((prev) => (prev + 1) % words.length);
         }
@@ -31,7 +41,7 @@ export const HeroSection = () => {
     }, isDeleting ? 50 : 100);
 
     return () => clearTimeout(timeout);
-  }, [typedText, isDeleting, wordIndex]);
+  }, [typedText, isDeleting, wordIndex, hasStarted]);
 
   return (
     <section className="flex flex-col items-center justify-center px-8 text-center py-24 md:py-12 relative min-h-[80vh] md:min-h-[60vh] overflow-hidden">
