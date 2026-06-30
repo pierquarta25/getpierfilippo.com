@@ -16,9 +16,18 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+import Script from "next/script";
+
 export const metadata: Metadata = {
-  title: "Portfolio | Pierfilippo Quartarella",
-  description: "Il mio portfolio personale costruito con Next.js, Tailwind CSS e shadcn/ui",
+  title: "Junior Full Stack Developer | React.js, Next.js, TypeScript, PHP e Laravel | Sviluppo applicazioni web moderne e automazioni AI",
+  description: "Portfolio di Pierfilippo Quartarella, Junior Full Stack Developer specializzato in React.js, Next.js, TypeScript, PHP, Laravel e sviluppo di automazioni AI.",
+  openGraph: {
+    title: "Pierfilippo Quartarella | Junior Full Stack Developer",
+    description: "Sviluppo applicazioni web moderne, piattaforme B2B e automazioni con integrazione AI.",
+    url: "https://www.getpierfilippo.com",
+    siteName: "Pierfilippo Quartarella Portfolio",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -26,13 +35,35 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pierfilippo Quartarella",
+    "url": "https://www.getpierfilippo.com",
+    "jobTitle": "Junior Full Stack Developer",
+    "knowsAbout": [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "PHP",
+      "Laravel",
+      "Artificial Intelligence",
+      "Web Development"
+    ]
+  };
+
   return (
     <html
-      lang="en"
+      lang="it"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full" suppressHydrationWarning>
+        <Script
+          id="structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Providers>
           <MainLayout>
             {children}
