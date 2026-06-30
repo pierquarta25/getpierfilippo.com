@@ -47,29 +47,48 @@ export const HeroSection = () => {
     <section className="flex flex-col items-center justify-center px-8 text-center py-24 md:py-12 relative min-h-[80vh] md:min-h-[60vh] overflow-hidden">
       
       <div className="relative z-10 flex flex-col items-center w-full max-w-5xl">
-        <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-black/50 dark:text-white/40 mb-6 block text-center max-w-xl">
+        {/* Claim - delay 0ms */}
+        <span
+          className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-black/50 dark:text-white/40 mb-6 block text-center max-w-xl opacity-0 animate-hero-fade-in"
+        >
           {t('hero.claim')}
         </span>
 
-        <h1 className="text-[clamp(2.2rem,7vw,4.5rem)] font-bold uppercase leading-[1.15] tracking-tighter max-w-4xl text-black dark:text-white">
+        {/* Title - delay 150ms */}
+        <h1
+          className="text-[clamp(2.2rem,7vw,4.5rem)] font-bold uppercase leading-[1.15] tracking-tighter max-w-4xl text-black dark:text-white opacity-0 animate-hero-fade-in"
+          style={{ animationDelay: '150ms' }}
+        >
           {t('hero.title')} <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-black/60 to-black/40 dark:from-white/60 dark:to-white/40">
             {t('hero.title.span')}
           </span>
         </h1>
 
-        <div className="h-8 mt-6 flex items-center justify-center">
+        {/* Typing animation - delay 300ms */}
+        <div
+          className="h-8 mt-6 flex items-center justify-center opacity-0 animate-hero-fade-in"
+          style={{ animationDelay: '300ms' }}
+        >
           <span className="text-xs md:text-sm font-mono font-bold tracking-[0.3em] text-black/40 dark:text-white/30 uppercase flex items-center gap-1">
             {typedText}
             <span className="w-[1px] h-4 bg-black dark:bg-white animate-caret ml-1" />
           </span>
         </div>
 
-        <p className="mt-8 text-base md:text-xl text-black/60 dark:text-white/60 max-w-2xl leading-relaxed font-medium">
+        {/* Description - delay 450ms */}
+        <p
+          className="mt-8 text-base md:text-xl text-black/60 dark:text-white/60 max-w-2xl leading-relaxed font-medium opacity-0 animate-hero-fade-in"
+          style={{ animationDelay: '450ms' }}
+        >
           {t('hero.description')}
         </p>
 
-        <div className="mt-12 flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-4 w-full sm:w-auto px-4 sm:px-0">
+        {/* Buttons - delay 600ms */}
+        <div
+          className="mt-12 flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-4 w-full sm:w-auto px-4 sm:px-0 opacity-0 animate-hero-fade-in"
+          style={{ animationDelay: '600ms' }}
+        >
           <Link 
             href="/work" 
             className="flex items-center justify-center gap-3 bg-black dark:bg-white text-white dark:text-black hover:opacity-90 transition-all px-8 py-4 text-xs font-mono font-bold tracking-[0.2em] uppercase rounded-none border border-black dark:border-white w-full sm:w-auto"
