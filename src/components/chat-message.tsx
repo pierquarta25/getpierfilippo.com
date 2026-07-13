@@ -1,8 +1,13 @@
 import { cn } from "@/lib/utils";
 import { Bot, User } from "lucide-react";
 
-export function ChatMessage({ message }: { message: { role: string; content: string } }) {
+export function ChatMessage({ message }: { message: any }) {
   const isUser = message.role === 'user';
+  
+  // Extract text depending on SDK version
+  const textContent = message.content 
+    ? message.content 
+    : (message.parts?.find((p: any) => p.type === 'text')?.text || "");
 
   return (
     <div className={cn("flex w-full items-start gap-x-2 py-4", isUser ? "justify-end" : "justify-start")}>
@@ -16,7 +21,7 @@ export function ChatMessage({ message }: { message: { role: string; content: str
         "flex flex-col gap-2 rounded-lg px-4 py-3 text-sm shadow-sm",
         isUser ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"
       )}>
-        <span className="whitespace-pre-wrap">{message.content}</span>
+        <span className="whitespace-pre-wrap">{textContent}</span>
       </div>
 
       {isUser && (

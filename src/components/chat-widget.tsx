@@ -10,7 +10,9 @@ import { ChatMessage } from "./chat-message";
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat();
+  const [input, setInput] = useState("");
+  const { messages, sendMessage, status } = useChat();
+  const isLoading = status === "submitted" || status === "streaming";
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -18,6 +20,13 @@ export function ChatWidget() {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages]);
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim() || isLoading) return;
+    sendMessage({ parts: [{ type: "text", text: input }], role: "user" });
+    setInput("");
+  };
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
@@ -54,10 +63,10 @@ export function ChatWidget() {
           </CardContent>
 
           <CardFooter className="p-3 border-t">
-            <form onSubmit={handleSubmit} className="flex w-full gap-2">
+            <form onSubmit={onSubmit} className="flex w-full gap-2">
               <Input 
                 value={input}
-                onChange={handleInputChange}
+                onChange={(e) => setInput(e.target.value)}
                 placeholder="Chiedimi qualcosa..." 
                 className="flex-1"
                 disabled={isLoading}
