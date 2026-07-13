@@ -37,7 +37,7 @@ export function ChatWidget() {
               <MessageCircle className="h-5 w-5 text-primary" />
               Pierfilippo AI
             </CardTitle>
-            <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="h-8 w-8">
+            <Button variant="ghost" size="icon" aria-label="Chiudi chat" onClick={() => setIsOpen(false)} className="h-8 w-8">
               <X className="h-4 w-4" />
             </Button>
           </CardHeader>
@@ -71,7 +71,7 @@ export function ChatWidget() {
                 className="flex-1"
                 disabled={isLoading}
               />
-              <Button type="submit" size="icon" disabled={isLoading || !input.trim()}>
+              <Button type="submit" size="icon" aria-label="Invia messaggio" disabled={isLoading || !input.trim()}>
                 <Send className="h-4 w-4" />
               </Button>
             </form>
@@ -81,6 +81,7 @@ export function ChatWidget() {
 
       <Button
         size="icon"
+        aria-label={isOpen ? "Chiudi chat AI" : "Apri chat AI"}
         className="h-14 w-14 rounded-full shadow-2xl transition-all duration-300 hover:scale-105"
         onClick={() => setIsOpen(!isOpen)}
       >
