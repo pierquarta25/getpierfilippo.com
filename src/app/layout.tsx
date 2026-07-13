@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { MainLayout } from "@/components/sharlee/MainLayout";
 import { Providers } from "@/components/Providers";
-import { ChatWidget } from "@/components/chat-widget";
+import { ChatWidgetDynamic } from "@/components/chat-widget-dynamic";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -68,7 +68,7 @@ export default function RootLayout({
         <Providers>
           <MainLayout>
             {children}
-            <ChatWidget />
+            <ChatWidgetDynamic />
           </MainLayout>
         </Providers>
       </body>
