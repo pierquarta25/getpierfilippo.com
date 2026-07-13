@@ -67,5 +67,5 @@ Istruzioni Comportamentali:
     messages,
   });
 
-  return result.toDataStreamResponse();
+  return result.toTextStreamResponse();
 }
