@@ -10,7 +10,6 @@ import { ChatMessage } from "./chat-message";
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [input, setInput] = useState("");
   const { messages, sendMessage, status } = useChat();
   const isLoading = status === "submitted" || status === "streaming";
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -21,12 +20,7 @@ export function ChatWidget() {
     }
   }, [messages]);
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim() || isLoading) return;
-    sendMessage({ parts: [{ type: "text", text: input }], role: "user" });
-    setInput("");
-  };
+
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
@@ -63,18 +57,10 @@ export function ChatWidget() {
           </CardContent>
 
           <CardFooter className="p-3 border-t">
-            <form onSubmit={onSubmit} className="flex w-full gap-2">
-              <Input 
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Chiedimi qualcosa..." 
-                className="flex-1"
-                disabled={isLoading}
-              />
-              <Button type="submit" size="icon" aria-label="Invia messaggio" disabled={isLoading || !input.trim()}>
-                <Send className="h-4 w-4" />
-              </Button>
-            </form>
+            <ChatForm 
+              isLoading={isLoading} 
+              onSend={(text) => sendMessage({ parts: [{ type: "text", text }], role: "user" })} 
+            />
           </CardFooter>
         </Card>
       )}
@@ -88,5 +74,31 @@ export function ChatWidget() {
         {isOpen ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
       </Button>
     </div>
+  );
+}
+
+function ChatForm({ onSend, isLoading }: { onSend: (text: string) => void, isLoading: boolean }) {
+  const [input, setInput] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim() || isLoading) return;
+    onSend(input);
+    setInput("");
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="flex w-full gap-2">
+      <Input 
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Chiedimi qualcosa..." 
+        className="flex-1"
+        disabled={isLoading}
+      />
+      <Button type="submit" size="icon" aria-label="Invia messaggio" disabled={isLoading || !input.trim()}>
+        <Send className="h-4 w-4" />
+      </Button>
+    </form>
   );
 }
