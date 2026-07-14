@@ -75,7 +75,7 @@ Istruzioni Comportamentali:
 `;
 
   const result = streamText({
-    model: google('gemini-1.5-flash'),
+    model: google('gemini-2.5-flash'),
     system: systemPrompt,
     messages,
   });
