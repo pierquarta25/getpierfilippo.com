@@ -80,5 +80,5 @@ Istruzioni Comportamentali:
     messages,
   });
 
-  return result.toTextStreamResponse();
+  return result.toUIMessageStreamResponse();
 }
