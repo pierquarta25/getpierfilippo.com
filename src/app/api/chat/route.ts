@@ -74,10 +74,15 @@ Istruzioni Comportamentali:
 - Non inventare MAI informazioni che non sono scritte in questo prompt.
 `;
 
+  const coreMessages = messages.map((m: any) => ({
+    role: m.role,
+    content: m.content || m.parts?.find((p: any) => p.type === 'text')?.text || '',
+  }));
+
   const result = streamText({
     model: google('gemini-2.5-flash'),
     system: systemPrompt,
-    messages,
+    messages: coreMessages,
   });
 
   return result.toUIMessageStreamResponse();

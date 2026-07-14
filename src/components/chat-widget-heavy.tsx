@@ -10,6 +10,7 @@ import { ChatMessage } from "./chat-message";
 
 export function ChatWidgetHeavy({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (open: boolean) => void }) {
   const { messages, sendMessage, status } = useChat();
+  console.log("USECHAT MESSAGES:", messages);
   const isLoading = status === "submitted" || status === "streaming";
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
