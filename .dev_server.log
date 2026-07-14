@@ -1,0 +1,265 @@
+
+> next-app@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://172.16.192.101:3000
+- Environments: .env.local, .env
+✓ Ready in 759ms
+
+Error [AI_InvalidPromptError]: Invalid prompt: The messages do not match the ModelMessage[] schema.
+    at ignore-listed frames {
+  prompt: undefined,
+  [cause]: Error [AI_TypeValidationError]: Type validation failed: Value: [{"role":"user","parts":[{"type":"text","text":"Ciao"}]}].
+  Error message: [
+    {
+      "code": "invalid_union",
+      "errors": [
+        [
+          {
+            "code": "invalid_value",
+            "values": [
+              "system"
+            ],
+            "path": [
+              "role"
+            ],
+            "message": "Invalid input: expected \"system\""
+          },
+          {
+            "expected": "string",
+            "code": "invalid_type",
+            "path": [
+              "content"
+            ],
+            "message": "Invalid input: expected string, received undefined"
+          }
+        ],
+        [
+          {
+            "code": "invalid_union",
+            "errors": [
+              [
+                {
+                  "expected": "string",
+                  "code": "invalid_type",
+                  "path": [],
+                  "message": "Invalid input: expected string, received undefined"
+                }
+              ],
+              [
+                {
+                  "expected": "array",
+                  "code": "invalid_type",
+                  "path": [],
+                  "message": "Invalid input: expected array, received undefined"
+                }
+              ]
+            ],
+            "path": [
+              "content"
+            ],
+            "message": "Invalid input"
+          }
+        ],
+        [
+          {
+            "code": "invalid_value",
+            "values": [
+              "assistant"
+            ],
+            "path": [
+              "role"
+            ],
+            "message": "Invalid input: expected \"assistant\""
+          },
+          {
+            "code": "invalid_union",
+            "errors": [
+              [
+                {
+                  "expected": "string",
+                  "code": "invalid_type",
+                  "path": [],
+                  "message": "Invalid input: expected string, received undefined"
+                }
+              ],
+              [
+                {
+                  "expected": "array",
+                  "code": "invalid_type",
+                  "path": [],
+                  "message": "Invalid input: expected array, received undefined"
+                }
+              ]
+            ],
+            "path": [
+              "content"
+            ],
+            "message": "Invalid input"
+          }
+        ],
+        [
+          {
+            "code": "invalid_value",
+            "values": [
+              "tool"
+            ],
+            "path": [
+              "role"
+            ],
+            "message": "Invalid input: expected \"tool\""
+          },
+          {
+            "expected": "array",
+            "code": "invalid_type",
+            "path": [
+              "content"
+            ],
+            "message": "Invalid input: expected array, received undefined"
+          }
+        ]
+      ],
+      "path": [
+        0
+      ],
+      "message": "Invalid input"
+    }
+  ]
+      at ignore-listed frames {
+    value: [ [Object] ],
+    context: undefined,
+    [cause]: Error [ZodError]: [
+      {
+        "code": "invalid_union",
+        "errors": [
+          [
+            {
+              "code": "invalid_value",
+              "values": [
+                "system"
+              ],
+              "path": [
+                "role"
+              ],
+              "message": "Invalid input: expected \"system\""
+            },
+            {
+              "expected": "string",
+              "code": "invalid_type",
+              "path": [
+                "content"
+              ],
+              "message": "Invalid input: expected string, received undefined"
+            }
+          ],
+          [
+            {
+              "code": "invalid_union",
+              "errors": [
+                [
+                  {
+                    "expected": "string",
+                    "code": "invalid_type",
+                    "path": [],
+                    "message": "Invalid input: expected string, received undefined"
+                  }
+                ],
+                [
+                  {
+                    "expected": "array",
+                    "code": "invalid_type",
+                    "path": [],
+                    "message": "Invalid input: expected array, received undefined"
+                  }
+                ]
+              ],
+              "path": [
+                "content"
+              ],
+              "message": "Invalid input"
+            }
+          ],
+          [
+            {
+              "code": "invalid_value",
+              "values": [
+                "assistant"
+              ],
+              "path": [
+                "role"
+              ],
+              "message": "Invalid input: expected \"assistant\""
+            },
+            {
+              "code": "invalid_union",
+              "errors": [
+                [
+                  {
+                    "expected": "string",
+                    "code": "invalid_type",
+                    "path": [],
+                    "message": "Invalid input: expected string, received undefined"
+                  }
+                ],
+                [
+                  {
+                    "expected": "array",
+                    "code": "invalid_type",
+                    "path": [],
+                    "message": "Invalid input: expected array, received undefined"
+                  }
+                ]
+              ],
+              "path": [
+                "content"
+              ],
+              "message": "Invalid input"
+            }
+          ],
+          [
+            {
+              "code": "invalid_value",
+              "values": [
+                "tool"
+              ],
+              "path": [
+                "role"
+              ],
+              "message": "Invalid input: expected \"tool\""
+            },
+            {
+              "expected": "array",
+              "code": "invalid_type",
+              "path": [
+                "content"
+              ],
+              "message": "Invalid input: expected array, received undefined"
+            }
+          ]
+        ],
+        "path": [
+          0
+        ],
+        "message": "Invalid input"
+      }
+    ]
+        at POST (src/app/api/chat/route.ts:77:28)
+      75 | `;
+      76 |
+    > 77 |   const result = streamText({
+         |                            ^
+      78 |     model: google('gemini-1.5-flash'),
+      79 |     system: systemPrompt,
+      80 |     messages,
+  }
+}
+ POST /api/chat 200 in 1724ms (next.js: 627ms, application-code: 1097ms)
+⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://172.16.192.101:3000
+- Environments: .env.local, .env
+✓ Ready in 458ms
+

@@ -1,10 +1,23 @@
 import { google } from '@ai-sdk/google';
 import { streamText } from 'ai';
+import { rateLimit } from '@/lib/rate-limit';
+
+const limiter = rateLimit(10, 60000); // 10 richieste al minuto
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
 
 export async function POST(req: Request) {
+  // Check Rate Limit
+  const ip = req.headers.get('x-forwarded-for') ?? '127.0.0.1';
+  const isAllowed = limiter(ip);
+
+  if (!isAllowed) {
+    return new Response('Rate limit exceeded. Please try again later.', {
+      status: 429,
+    });
+  }
+
   const { messages } = await req.json();
 
   const systemPrompt = `
