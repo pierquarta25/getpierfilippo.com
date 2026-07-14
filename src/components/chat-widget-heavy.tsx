@@ -15,7 +15,7 @@ export function ChatWidgetHeavy({ isOpen, setIsOpen }: { isOpen: boolean; setIsO
 
   useEffect(() => {
     if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+      messagesEndRef.current.scrollIntoView();
     }
   }, [messages]);
 
@@ -56,7 +56,7 @@ export function ChatWidgetHeavy({ isOpen, setIsOpen }: { isOpen: boolean; setIsO
       <CardFooter className="p-3 border-t">
         <ChatForm 
           isLoading={isLoading} 
-          onSend={(text) => sendMessage({ parts: [{ type: "text", text }], role: "user" })} 
+          onSend={(text) => sendMessage({ text })} 
         />
       </CardFooter>
     </Card>
