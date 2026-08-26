@@ -69,7 +69,7 @@ export const AboutSection = () => {
                 <span className="font-bold uppercase text-xs tracking-widest">{t('about.logic')}</span>
               </div>
               <ul className="text-[10px] font-mono space-y-2 opacity-50 uppercase tracking-tight">
-                <li>{`> ReactJs & TS Spec`}</li>
+                <li>{`> ReactJs, Angular & TS`}</li>
                 <li>{`> Full Stack & Python`}</li>
                 <li>{`> Problem Solving & Agile`}</li>
               </ul>
