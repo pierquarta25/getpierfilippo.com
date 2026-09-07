@@ -36,7 +36,14 @@ export const TopBar = () => {
     { id: '04', label: t('nav.contact'), href: '/contact' },
   ];
 
-  if (!mounted) return null;
+  // Skeleton placeholder durante SSR — mantiene le stesse dimensioni per evitare layout shift
+  if (!mounted) {
+    return (
+      <header className="fixed top-0 left-0 w-full z-50 border-b border-black/10 dark:border-white/10 bg-white/50 dark:bg-black/50 backdrop-blur-md">
+        <div className="flex h-16" />
+      </header>
+    );
+  }
 
   return (
     <>

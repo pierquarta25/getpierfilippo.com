@@ -12,12 +12,9 @@ export const TypingText = () => {
 
   const containerRef = useRef<HTMLSpanElement>(null);
 
-  // Refs per lo stato mutabile dell'animazione (evitano re-render e dependency loop)
+  // Refs per lo stato mutabile (non triggerano re-render)
   const wordIndexRef = useRef(0);
   const isDeletingRef = useRef(false);
-  const isPausedRef = useRef(false);
-  const rafIdRef = useRef<number>(0);
-  const lastUpdateRef = useRef(0);
 
   // Ferma l'animazione quando il componente non è visibile nella viewport
   useEffect(() => {
@@ -44,61 +41,43 @@ export const TypingText = () => {
     return () => clearTimeout(initialDelay);
   }, []);
 
-  // Logica di animazione con requestAnimationFrame
+  // Logica di animazione con setTimeout (più efficiente di rAF per task discreti)
   useEffect(() => {
-    if (!hasStarted || !isVisible) {
-      if (rafIdRef.current) {
-        cancelAnimationFrame(rafIdRef.current);
-        rafIdRef.current = 0;
-      }
-      return;
-    }
+    if (!hasStarted || !isVisible) return;
 
-    const animate = (timestamp: number) => {
-      const delay = isDeletingRef.current ? 50 : 100;
+    let timeoutId: ReturnType<typeof setTimeout>;
 
-      if (timestamp - lastUpdateRef.current >= delay) {
-        lastUpdateRef.current = timestamp;
+    const tick = () => {
+      setTypedText((prevText) => {
+        const currentWord = WORDS[wordIndexRef.current];
 
-        if (isPausedRef.current) {
-          // Non fare nulla durante la pausa
+        if (isDeletingRef.current) {
+          if (prevText.length <= 1) {
+            isDeletingRef.current = false;
+            wordIndexRef.current = (wordIndexRef.current + 1) % WORDS.length;
+          }
+          return currentWord.substring(0, prevText.length - 1);
         } else {
-          setTypedText((prevText) => {
-            const currentWord = WORDS[wordIndexRef.current];
-
-            if (isDeletingRef.current) {
-              if (prevText.length <= 1) {
-                isDeletingRef.current = false;
-                wordIndexRef.current = (wordIndexRef.current + 1) % WORDS.length;
-              }
-              return currentWord.substring(0, prevText.length - 1);
-            } else {
-              if (prevText.length === currentWord.length) {
-                // Pausa prima di cancellare la parola successiva
-                isPausedRef.current = true;
-                setTimeout(() => {
-                  isDeletingRef.current = true;
-                  isPausedRef.current = false;
-                }, 1500);
-                return prevText;
-              }
-              return currentWord.substring(0, prevText.length + 1);
-            }
-          });
+          if (prevText.length === currentWord.length) {
+            // Pausa di 1.5s prima di cancellare la parola
+            timeoutId = setTimeout(() => {
+              isDeletingRef.current = true;
+              timeoutId = setTimeout(tick, 50);
+            }, 1500);
+            return prevText;
+          }
+          return currentWord.substring(0, prevText.length + 1);
         }
-      }
+      });
 
-      rafIdRef.current = requestAnimationFrame(animate);
+      // Schedula il prossimo tick solo se non siamo in pausa
+      const delay = isDeletingRef.current ? 50 : 100;
+      timeoutId = setTimeout(tick, delay);
     };
 
-    rafIdRef.current = requestAnimationFrame(animate);
+    timeoutId = setTimeout(tick, isDeletingRef.current ? 50 : 100);
 
-    return () => {
-      if (rafIdRef.current) {
-        cancelAnimationFrame(rafIdRef.current);
-        rafIdRef.current = 0;
-      }
-    };
+    return () => clearTimeout(timeoutId);
   }, [hasStarted, isVisible]);
 
   return (
