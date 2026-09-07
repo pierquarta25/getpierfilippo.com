@@ -4,13 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { ArrowDown, CodeXml, Dumbbell } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
-import dynamic from 'next/dynamic';
-
-// Caricamento dinamico: react-markdown (~30-50KB) viene scaricato solo quando serve
-const ReactMarkdown = dynamic(
-  () => import('react-markdown'),
-  { ssr: false }
-);
+import ReactMarkdown from 'react-markdown';
 
 export const AboutSection = () => {
   const { t } = useLanguage();

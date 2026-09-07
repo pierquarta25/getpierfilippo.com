@@ -1,18 +1,23 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+// Array costante fuori dal componente — evita ricreazione ad ogni render
+const WORDS = ['FULL STACK DEVELOPER', 'FRONTEND DEVELOPER', 'BACKEND DEVELOPER', 'REACT SPECIALIST', 'SOFTWARE DEVELOPER', 'UX DEVELOPER'];
 
 export const TypingText = () => {
-  const words = ['FULL STACK DEVELOPER', 'FRONTEND DEVELOPER', 'BACKEND DEVELOPER', 'REACT SPECIALIST', 'SOFTWARE DEVELOPER', 'UX DEVELOPER'];
-  const [typedText, setTypedText] = useState(words[0]);
-  const [wordIndex, setWordIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [typedText, setTypedText] = useState(WORDS[0]);
   const [hasStarted, setHasStarted] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 
   const containerRef = useRef<HTMLSpanElement>(null);
-  const lastUpdateRef = useRef(0);
+
+  // Refs per lo stato mutabile dell'animazione (evitano re-render e dependency loop)
+  const wordIndexRef = useRef(0);
+  const isDeletingRef = useRef(false);
+  const isPausedRef = useRef(false);
   const rafIdRef = useRef<number>(0);
+  const lastUpdateRef = useRef(0);
 
   // Ferma l'animazione quando il componente non è visibile nella viewport
   useEffect(() => {
@@ -34,58 +39,67 @@ export const TypingText = () => {
   useEffect(() => {
     const initialDelay = setTimeout(() => {
       setHasStarted(true);
-      setIsDeleting(true);
+      isDeletingRef.current = true;
     }, 2000);
     return () => clearTimeout(initialDelay);
   }, []);
 
-  // Logica di animazione con requestAnimationFrame invece di setTimeout
-  const animate = useCallback((timestamp: number) => {
-    const delay = isDeleting ? 50 : 100;
-
-    if (timestamp - lastUpdateRef.current >= delay) {
-      lastUpdateRef.current = timestamp;
-
-      setTypedText((prevText) => {
-        const currentWord = words[wordIndex];
-
-        if (isDeleting) {
-          if (prevText.length <= 1) {
-            setIsDeleting(false);
-            setWordIndex((prev) => (prev + 1) % words.length);
-          }
-          return currentWord.substring(0, prevText.length - 1);
-        } else {
-          if (prevText.length === currentWord.length) {
-            // Pausa prima di cancellare la parola successiva
-            setTimeout(() => setIsDeleting(true), 1500);
-            return prevText;
-          }
-          return currentWord.substring(0, prevText.length + 1);
-        }
-      });
-    }
-
-    rafIdRef.current = requestAnimationFrame(animate);
-  }, [isDeleting, wordIndex, words]);
-
+  // Logica di animazione con requestAnimationFrame
   useEffect(() => {
     if (!hasStarted || !isVisible) {
-      // Se non è visibile o non è partita, cancella qualsiasi animazione in corso
       if (rafIdRef.current) {
         cancelAnimationFrame(rafIdRef.current);
+        rafIdRef.current = 0;
       }
       return;
     }
+
+    const animate = (timestamp: number) => {
+      const delay = isDeletingRef.current ? 50 : 100;
+
+      if (timestamp - lastUpdateRef.current >= delay) {
+        lastUpdateRef.current = timestamp;
+
+        if (isPausedRef.current) {
+          // Non fare nulla durante la pausa
+        } else {
+          setTypedText((prevText) => {
+            const currentWord = WORDS[wordIndexRef.current];
+
+            if (isDeletingRef.current) {
+              if (prevText.length <= 1) {
+                isDeletingRef.current = false;
+                wordIndexRef.current = (wordIndexRef.current + 1) % WORDS.length;
+              }
+              return currentWord.substring(0, prevText.length - 1);
+            } else {
+              if (prevText.length === currentWord.length) {
+                // Pausa prima di cancellare la parola successiva
+                isPausedRef.current = true;
+                setTimeout(() => {
+                  isDeletingRef.current = true;
+                  isPausedRef.current = false;
+                }, 1500);
+                return prevText;
+              }
+              return currentWord.substring(0, prevText.length + 1);
+            }
+          });
+        }
+      }
+
+      rafIdRef.current = requestAnimationFrame(animate);
+    };
 
     rafIdRef.current = requestAnimationFrame(animate);
 
     return () => {
       if (rafIdRef.current) {
         cancelAnimationFrame(rafIdRef.current);
+        rafIdRef.current = 0;
       }
     };
-  }, [hasStarted, isVisible, animate]);
+  }, [hasStarted, isVisible]);
 
   return (
     <span
