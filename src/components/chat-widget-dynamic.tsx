@@ -27,7 +27,7 @@ export function ChatWidgetDynamic() {
       <Button
         size="icon"
         aria-label={isOpen ? "Chiudi chat AI" : "Apri chat AI"}
-        className="h-14 w-14 rounded-full shadow-2xl transition-all duration-300 hover:scale-105"
+        className="h-14 w-14 rounded-full shadow-2xl transition-[transform,box-shadow] duration-300 hover:scale-105"
         onClick={toggleOpen}
       >
         {isOpen ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}

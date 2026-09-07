@@ -73,7 +73,7 @@ export const OverlayMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () 
                   <span className="text-xs font-mono opacity-30 group-hover:opacity-100 transition-opacity">
                     {item.href === '/' ? '00' : `0${menuItems.indexOf(item)}`}
                   </span>
-                  <span className="text-4xl md:text-8xl font-bold uppercase tracking-tighter hover:italic text-black dark:text-white transition-all group-hover:translate-x-4 md:group-hover:translate-x-0 md:group-hover:scale-110">
+                  <span className="text-4xl md:text-8xl font-bold uppercase tracking-tighter hover:italic text-black dark:text-white transition-[opacity,transform] group-hover:translate-x-4 md:group-hover:translate-x-0 md:group-hover:scale-110">
                     {item.label}
                   </span>
                   {isActive && (

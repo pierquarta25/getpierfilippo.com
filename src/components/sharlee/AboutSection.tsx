@@ -4,7 +4,13 @@ import React from 'react';
 import Image from 'next/image';
 import { ArrowDown, CodeXml, Dumbbell } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
-import ReactMarkdown from 'react-markdown';
+import dynamic from 'next/dynamic';
+
+// Caricamento dinamico: react-markdown (~30-50KB) viene scaricato solo quando serve
+const ReactMarkdown = dynamic(
+  () => import('react-markdown'),
+  { ssr: false }
+);
 
 export const AboutSection = () => {
   const { t } = useLanguage();
@@ -13,6 +19,7 @@ export const AboutSection = () => {
     <>
       <title>{t('about.seo.title')}</title>
       <meta name="description" content={t('about.seo.description')} />
+      <link rel="prefetch" href="/CV_Pierfilippo_Quartarella.pdf" as="document" />
 
       <section id="about" className="min-h-screen py-16 md:py-32 px-8 md:px-24 bg-white dark:bg-black relative overflow-hidden flex items-center">
         
@@ -40,7 +47,7 @@ export const AboutSection = () => {
                 alt="Pierfilippo Quartarella"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover transition-all duration-700 group-hover:scale-105 grayscale hover:grayscale-0"
+                className="object-cover transition-[transform,filter] duration-700 group-hover:scale-105 grayscale hover:grayscale-0"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent dark:from-white/5 dark:to-transparent pointer-events-none group-hover:opacity-0 transition-opacity" />
@@ -94,7 +101,7 @@ export const AboutSection = () => {
             <a 
               href="/CV_Pierfilippo_Quartarella.pdf" 
               download 
-              className="group flex items-center gap-3 font-bold hover:opacity-50 transition-all uppercase text-[10px] tracking-[0.2em] py-4 px-8 border border-black/10 dark:border-white/10 rounded-full w-fit"
+              className="group flex items-center gap-3 font-bold hover:opacity-50 transition-opacity uppercase text-[10px] tracking-[0.2em] py-4 px-8 border border-black/10 dark:border-white/10 rounded-full w-fit touch-manipulation"
             >
               <ArrowDown size={14} className="group-hover:translate-y-1 transition-transform" /> 
               {t('about.resume')}

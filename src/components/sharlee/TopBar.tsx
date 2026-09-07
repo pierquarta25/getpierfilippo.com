@@ -8,7 +8,13 @@ import { useTheme } from 'next-themes';
 import { useLanguage } from '@/lib/LanguageContext';
 import { cn } from '@/lib/utils';
 import { Logo } from './Logo';
-import { OverlayMenu } from './OverlayMenu';
+import dynamic from 'next/dynamic';
+
+// Caricamento dinamico: OverlayMenu viene scaricato solo al primo click su "MENU"
+const OverlayMenu = dynamic(
+  () => import('./OverlayMenu').then((mod) => mod.OverlayMenu),
+  { ssr: false }
+);
 
 export const TopBar = () => {
   const { theme, setTheme } = useTheme();
@@ -56,12 +62,12 @@ export const TopBar = () => {
                   key={item.id}
                   href={item.href}
                   className={cn(
-                    "flex flex-col justify-center px-8 min-w-[140px] border-r border-black/10 dark:border-white/10 transition-all duration-300 group relative overflow-hidden",
+                    "flex flex-col justify-center px-8 min-w-[140px] border-r border-black/10 dark:border-white/10 transition-colors duration-300 group relative overflow-hidden",
                     isActive ? "bg-black/5 dark:bg-white/5" : "hover:bg-black/[0.02] dark:hover:bg-white/[0.02]"
                   )}
                 >
                   <span className={cn(
-                    "text-[10px] font-mono font-bold tracking-[0.2em] transition-all",
+                    "text-[10px] font-mono font-bold tracking-[0.2em] transition-colors",
                     isActive ? "text-black dark:text-white" : "text-black/60 dark:text-white/50 group-hover:text-black dark:group-hover:text-white"
                   )}>
                     {item.label}

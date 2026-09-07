@@ -33,7 +33,7 @@ export default function Error403Page() {
         <div className="pt-8">
           <Link 
             href="/" 
-            className="group inline-flex items-center gap-3 font-bold uppercase text-[10px] tracking-[0.2em] py-4 px-8 border border-black/10 dark:border-white/10 rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all"
+            className="group inline-flex items-center gap-3 font-bold uppercase text-[10px] tracking-[0.2em] py-4 px-8 border border-black/10 dark:border-white/10 rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
           >
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
             {t('error.back')}

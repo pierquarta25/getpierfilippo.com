@@ -36,14 +36,14 @@ export const HeroSection = () => {
         <div className="mt-12 flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-4 w-full sm:w-auto px-4 sm:px-0">
           <Link 
             href="/work" 
-            className="flex items-center justify-center gap-3 bg-black dark:bg-white text-white dark:text-black hover:opacity-90 transition-all px-8 py-4 text-xs font-mono font-bold tracking-[0.2em] uppercase rounded-none border border-black dark:border-white w-full sm:w-auto"
+            className="flex items-center justify-center gap-3 bg-black dark:bg-white text-white dark:text-black hover:opacity-90 transition-opacity px-8 py-4 text-xs font-mono font-bold tracking-[0.2em] uppercase rounded-none border border-black dark:border-white w-full sm:w-auto"
           >
             {t('hero.work')}
             <ArrowRight size={14} />
           </Link>
           <Link 
             href="/contact" 
-            className="flex items-center justify-center gap-3 border border-black/20 dark:border-white/20 bg-transparent text-black dark:text-white hover:bg-black/[0.03] dark:hover:bg-white/[0.03] transition-all px-8 py-4 text-xs font-mono font-bold tracking-[0.2em] uppercase rounded-none w-full sm:w-auto"
+            className="flex items-center justify-center gap-3 border border-black/20 dark:border-white/20 bg-transparent text-black dark:text-white hover:bg-black/[0.03] dark:hover:bg-white/[0.03] transition-colors px-8 py-4 text-xs font-mono font-bold tracking-[0.2em] uppercase rounded-none w-full sm:w-auto"
           >
             {t('hero.about')}
             <ArrowRight size={14} />

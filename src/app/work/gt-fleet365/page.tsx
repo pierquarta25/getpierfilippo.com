@@ -46,7 +46,7 @@ const StepTracker = ({ language }: { language: 'IT' | 'EN' }) => {
       <div className="hidden md:flex md:flex-row md:items-center md:justify-between md:gap-3 w-full">
         {steps.map((step, index) => (
           <React.Fragment key={index}>
-            <div className="flex-1 text-center border border-black/10 dark:border-white/10 bg-white dark:bg-black px-3 py-4 font-mono text-[11px] uppercase tracking-widest font-bold text-black dark:text-white transition-all hover:scale-[1.02] hover:border-black/40 dark:hover:border-white/40 duration-300">
+            <div className="flex-1 text-center border border-black/10 dark:border-white/10 bg-white dark:bg-black px-3 py-4 font-mono text-[11px] uppercase tracking-widest font-bold text-black dark:text-white transition-[transform,border-color] hover:scale-[1.02] hover:border-black/40 dark:hover:border-white/40 duration-300">
               {step}
             </div>
             {index < steps.length - 1 && (
