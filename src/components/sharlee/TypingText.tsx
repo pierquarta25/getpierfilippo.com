@@ -6,15 +6,16 @@ import React, { useState, useEffect, useRef } from 'react';
 const WORDS = ['FULL STACK DEVELOPER', 'FRONTEND DEVELOPER', 'BACKEND DEVELOPER', 'REACT SPECIALIST', 'SOFTWARE DEVELOPER', 'UX DEVELOPER'];
 
 export const TypingText = () => {
-  const [typedText, setTypedText] = useState(WORDS[0]);
   const [hasStarted, setHasStarted] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 
   const containerRef = useRef<HTMLSpanElement>(null);
-
+  const textRef = useRef<HTMLSpanElement>(null);
+  
   // Refs per lo stato mutabile (non triggerano re-render)
   const wordIndexRef = useRef(0);
   const isDeletingRef = useRef(false);
+  const currentTextRef = useRef(WORDS[0]); // Tiene traccia del testo corrente
 
   // Ferma l'animazione quando il componente non è visibile nella viewport
   useEffect(() => {
@@ -41,36 +42,41 @@ export const TypingText = () => {
     return () => clearTimeout(initialDelay);
   }, []);
 
-  // Logica di animazione con setTimeout (più efficiente di rAF per task discreti)
+  // Logica di animazione con setTimeout e mutazione diretta del DOM per massimizzare le performance
   useEffect(() => {
-    if (!hasStarted || !isVisible) return;
+    if (!hasStarted || !isVisible || !textRef.current) return;
 
     let timeoutId: ReturnType<typeof setTimeout>;
 
     const tick = () => {
-      setTypedText((prevText) => {
-        const currentWord = WORDS[wordIndexRef.current];
+      const prevText = currentTextRef.current;
+      const currentWord = WORDS[wordIndexRef.current];
+      let newText = prevText;
 
-        if (isDeletingRef.current) {
-          if (prevText.length <= 1) {
-            isDeletingRef.current = false;
-            wordIndexRef.current = (wordIndexRef.current + 1) % WORDS.length;
-          }
-          return currentWord.substring(0, prevText.length - 1);
-        } else {
-          if (prevText.length === currentWord.length) {
-            // Pausa di 1.5s prima di cancellare la parola
-            timeoutId = setTimeout(() => {
-              isDeletingRef.current = true;
-              timeoutId = setTimeout(tick, 50);
-            }, 1500);
-            return prevText;
-          }
-          return currentWord.substring(0, prevText.length + 1);
+      if (isDeletingRef.current) {
+        if (prevText.length <= 1) {
+          isDeletingRef.current = false;
+          wordIndexRef.current = (wordIndexRef.current + 1) % WORDS.length;
         }
-      });
+        newText = currentWord.substring(0, prevText.length - 1);
+      } else {
+        if (prevText.length === currentWord.length) {
+          // Pausa di 1.5s prima di cancellare la parola
+          timeoutId = setTimeout(() => {
+            isDeletingRef.current = true;
+            timeoutId = setTimeout(tick, 50);
+          }, 1500);
+          return;
+        }
+        newText = currentWord.substring(0, prevText.length + 1);
+      }
 
-      // Schedula il prossimo tick solo se non siamo in pausa
+      currentTextRef.current = newText;
+      if (textRef.current) {
+        textRef.current.textContent = newText;
+      }
+
+      // Schedula il prossimo tick
       const delay = isDeletingRef.current ? 50 : 100;
       timeoutId = setTimeout(tick, delay);
     };
@@ -85,7 +91,7 @@ export const TypingText = () => {
       ref={containerRef}
       className="text-xs md:text-sm font-mono font-bold tracking-[0.3em] text-black/40 dark:text-white/30 uppercase flex items-center gap-1"
     >
-      {typedText}
+      <span ref={textRef}>{WORDS[0]}</span>
       <span className="w-[1px] h-4 bg-black dark:bg-white animate-caret ml-1" />
     </span>
   );
