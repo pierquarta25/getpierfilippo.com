@@ -19,9 +19,9 @@ export const Background = () => {
           }}
         />
         
-        {/* Sub-grid (Millimetric) */}
+        {/* Sub-grid (Millimetric) — Nascosto su mobile per ridurre il lavoro di painting */}
         <div 
-          className="absolute inset-0 opacity-[0.05] dark:opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.05] dark:opacity-[0.03] hidden md:block"
           style={{ 
             backgroundImage: `
               linear-gradient(to right, #888 1px, transparent 1px),
@@ -31,9 +31,9 @@ export const Background = () => {
           }}
         />
 
-        {/* Subtle Radial Glow to prevent excessive flatness */}
+        {/* Subtle Radial Glow — Semplificato su mobile */}
         <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.4] dark:opacity-[0.2]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.4] dark:opacity-[0.2] hidden md:block"
           style={{ background: 'radial-gradient(circle, rgba(168, 255, 177, 0.1) 0%, transparent 70%)' }}
         />
       </div>

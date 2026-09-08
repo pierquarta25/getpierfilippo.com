@@ -38,7 +38,7 @@ export const TypingText = () => {
     const initialDelay = setTimeout(() => {
       setHasStarted(true);
       isDeletingRef.current = true;
-    }, 2000);
+    }, 500);
     return () => clearTimeout(initialDelay);
   }, []);
 

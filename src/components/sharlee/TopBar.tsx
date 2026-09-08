@@ -36,15 +36,6 @@ export const TopBar = () => {
     { id: '04', label: t('nav.contact'), href: '/contact' },
   ];
 
-  // Skeleton placeholder durante SSR — mantiene le stesse dimensioni per evitare layout shift
-  if (!mounted) {
-    return (
-      <header className="fixed top-0 left-0 w-full z-50 border-b border-black/10 dark:border-white/10 bg-white/50 dark:bg-black/50 backdrop-blur-md">
-        <div className="flex h-16" />
-      </header>
-    );
-  }
-
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-50 border-b border-black/10 dark:border-white/10 bg-white/50 dark:bg-black/50 backdrop-blur-md text-black dark:text-white">
@@ -107,15 +98,21 @@ export const TopBar = () => {
               onClick={() => setLanguage(language === 'EN' ? 'IT' : 'EN')}
               className="text-[10px] font-mono font-bold tracking-widest hover:opacity-50 transition-opacity text-black dark:text-white"
               aria-label={language === 'EN' ? '[EN] Cambia lingua in Italiano' : '[IT] Change language to English'}
+              suppressHydrationWarning
             >
               [{language}]
             </button>
+            {/* Icona tema: placeholder invisibile fino al mount per evitare hydration mismatch */}
             <button 
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="hover:opacity-50 transition-opacity text-black dark:text-white"
+              className="hover:opacity-50 transition-opacity text-black dark:text-white w-4 h-4"
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+              {mounted ? (
+                theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />
+              ) : (
+                <span className="block w-4 h-4" />
+              )}
             </button>
           </div>
         </div>
