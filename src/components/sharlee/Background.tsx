@@ -4,7 +4,7 @@ export const Background = () => {
   return (
     <>
       {/* Texture Noise Overlay */}
-      <div className="hidden md:block fixed inset-0 z-[-5] opacity-[0.03] pointer-events-none dark:opacity-[0.05] bg-noise-texture" />
+      <div className="fixed inset-0 z-[-5] opacity-[0.03] pointer-events-none dark:opacity-[0.05] bg-noise-texture" />
 
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-[#f8f8fa] dark:bg-[#050505]">
         {/* Main Grid */}
