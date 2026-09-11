@@ -38,7 +38,7 @@ export const TypingText = () => {
     const initialDelay = setTimeout(() => {
       setHasStarted(true);
       isDeletingRef.current = true;
-    }, 500);
+    }, 2500); // Aumentato da 500ms a 2500ms per migliorare l'LCP su mobile
     return () => clearTimeout(initialDelay);
   }, []);
 

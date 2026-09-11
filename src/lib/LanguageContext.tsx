@@ -98,12 +98,12 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
 
   useEffect(() => {
     const savedLang = localStorage.getItem('language');
-    if (savedLang === 'IT' || savedLang === 'EN') {
+    if ((savedLang === 'IT' || savedLang === 'EN') && savedLang !== language) {
       startTransition(() => {
         setLanguage(savedLang as Language);
       });
     }
-  }, []);
+  }, [language]);
 
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang);

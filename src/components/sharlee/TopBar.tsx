@@ -118,7 +118,7 @@ export const TopBar = () => {
         </div>
       </header>
 
-      <OverlayMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      {isMenuOpen && <OverlayMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />}
     </>
   );
 };
