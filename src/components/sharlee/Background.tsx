@@ -9,7 +9,7 @@ export const Background = () => {
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-[#f8f8fa] dark:bg-[#050505]">
         {/* Main Grid */}
         <div 
-          className="absolute inset-0 opacity-[0.15] dark:opacity-[0.1]"
+          className="absolute inset-0 opacity-[0.15] dark:opacity-[0.1] hidden md:block"
           style={{ 
             backgroundImage: `
               linear-gradient(to right, #888 1px, transparent 1px),

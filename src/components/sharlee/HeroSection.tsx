@@ -20,7 +20,7 @@ export const HeroSection = () => {
 
         <h1 className="text-[clamp(2.2rem,7vw,4.5rem)] font-bold uppercase leading-[1.15] tracking-tighter max-w-4xl text-black dark:text-white">
           {t('hero.title')} <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-black/60 to-black/40 dark:from-white/60 dark:to-white/40">
+          <span className="text-black/60 dark:text-white/60">
             {t('hero.title.span')}
           </span>
         </h1>
