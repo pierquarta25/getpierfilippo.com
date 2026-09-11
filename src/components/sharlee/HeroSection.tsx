@@ -14,7 +14,7 @@ export const HeroSection = () => {
     <section className="flex flex-col items-center justify-center px-8 text-center py-24 md:py-12 relative min-h-[80vh] md:min-h-[60vh] overflow-hidden">
       
       <div className="relative z-10 flex flex-col items-center w-full max-w-5xl">
-        <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-black/50 dark:text-white/40 mb-6 block text-center max-w-xl">
+        <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-black/60 dark:text-white/60 mb-6 block text-center max-w-xl">
           {t('hero.claim')}
         </span>
 

@@ -49,7 +49,7 @@ export const ProjectLayout = ({
       {/* Back Button */}
       <Link 
         href="/work" 
-        className="inline-flex items-center gap-2 text-sm font-mono uppercase tracking-widest text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors mt-8 mb-12 group"
+        className="inline-flex items-center gap-2 text-sm font-mono uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors mt-8 mb-12 group"
       >
         <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
         {t('project.back')}
@@ -59,7 +59,7 @@ export const ProjectLayout = ({
       <div className="border-b border-black/10 dark:border-white/10 pb-8 md:pb-12 mb-12">
         <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-8">
           <div className="max-w-full overflow-hidden">
-            <span className="text-xs md:text-sm font-mono uppercase tracking-[0.3em] text-black/40 dark:text-white/40 mb-4 block">
+            <span className="text-xs md:text-sm font-mono uppercase tracking-[0.3em] text-black/60 dark:text-white/60 mb-4 block">
               {category}
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold uppercase tracking-tighter leading-[0.9] text-black dark:text-white py-2 flex flex-wrap gap-x-2">
@@ -131,7 +131,7 @@ export const ProjectLayout = ({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 md:gap-24">
         <div className="lg:col-span-2 space-y-12 md:space-y-20">
           <div className="space-y-6 md:space-y-8">
-            <h2 className="text-xs md:text-sm font-mono uppercase tracking-widest text-black/40 dark:text-white/40">Overview</h2>
+            <h2 className="text-xs md:text-sm font-mono uppercase tracking-widest text-black/60 dark:text-white/60">Overview</h2>
             <p className="text-xl md:text-4xl text-black dark:text-white leading-relaxed font-light">
               {description}
             </p>
@@ -156,10 +156,10 @@ export const ProjectLayout = ({
             <h3 className="text-xs md:text-sm font-mono uppercase tracking-widest mb-6 border-b border-black/10 dark:border-white/10 pb-4 text-black dark:text-white">Project Details</h3>
             <div className="grid grid-cols-2 lg:grid-cols-1 gap-6">
               <div>
-                <span className="text-[10px] font-mono text-black/40 dark:text-white/40 uppercase block mb-1">Status</span>
+                <span className="text-[10px] font-mono text-black/60 dark:text-white/60 uppercase block mb-1">Status</span>
                 <span className="text-sm uppercase font-medium text-black dark:text-white">{projectStatus}</span>
                 {isInternal && (
-                  <span className="text-[10px] text-black/50 dark:text-white/50 tracking-wider mt-1.5 block font-medium leading-snug">
+                  <span className="text-[10px] text-black/60 dark:text-white/60 tracking-wider mt-1.5 block font-medium leading-snug">
                     {language === 'IT' 
                       ? 'Progetto interno · Non accessibile pubblicamente' 
                       : 'Internal Project · Not Publicly Accessible'}
@@ -167,11 +167,11 @@ export const ProjectLayout = ({
                 )}
               </div>
               <div>
-                <span className="text-[10px] font-mono text-black/40 dark:text-white/40 uppercase block mb-1">Role</span>
+                <span className="text-[10px] font-mono text-black/60 dark:text-white/60 uppercase block mb-1">Role</span>
                 <span className="text-sm uppercase font-medium text-black dark:text-white">{projectRole}</span>
               </div>
               <div>
-                <span className="text-[10px] font-mono text-black/40 dark:text-white/40 uppercase block mb-1">Year</span>
+                <span className="text-[10px] font-mono text-black/60 dark:text-white/60 uppercase block mb-1">Year</span>
                 <span className="text-sm uppercase font-medium text-black dark:text-white">{projectYear}</span>
               </div>
             </div>

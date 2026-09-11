@@ -89,7 +89,7 @@ export const TypingText = () => {
   return (
     <span
       ref={containerRef}
-      className="text-xs md:text-sm font-mono font-bold tracking-[0.3em] text-black/40 dark:text-white/30 uppercase flex items-center gap-1"
+      className="text-xs md:text-sm font-mono font-bold tracking-[0.3em] text-black/60 dark:text-white/60 uppercase flex items-center gap-1"
     >
       <span ref={textRef}>{WORDS[0]}</span>
       <span className="w-[1px] h-4 bg-black dark:bg-white animate-caret ml-1" />

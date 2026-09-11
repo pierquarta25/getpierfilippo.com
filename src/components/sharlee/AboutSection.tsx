@@ -69,7 +69,7 @@ export const AboutSection = () => {
                 </div>
                 <span className="font-bold uppercase text-xs tracking-widest">{t('about.logic')}</span>
               </div>
-              <ul className="text-[10px] font-mono space-y-2 opacity-50 uppercase tracking-tight">
+              <ul className="text-[10px] font-mono space-y-2 opacity-70 uppercase tracking-tight">
                 <li>{`> ReactJs, Angular & TS`}</li>
                 <li>{`> Full Stack & Python`}</li>
                 <li>{`> Problem Solving & Agile`}</li>
@@ -83,7 +83,7 @@ export const AboutSection = () => {
                 </div>
                 <span className="font-bold uppercase text-xs tracking-widest">{t('about.performance')}</span>
               </div>
-              <ul className="text-[10px] font-mono space-y-2 opacity-50 uppercase tracking-tight">
+              <ul className="text-[10px] font-mono space-y-2 opacity-70 uppercase tracking-tight">
                 <li>{`> Sports Science Degree`}</li>
                 <li>{`> Discipline & Mindset`}</li>
                 <li>{`> Biomechanics Analysis`}</li>
@@ -95,7 +95,7 @@ export const AboutSection = () => {
             <a 
               href="/CV_Pierfilippo_Quartarella.pdf" 
               download 
-              className="group flex items-center gap-3 font-bold hover:opacity-50 transition-opacity uppercase text-[10px] tracking-[0.2em] py-4 px-8 border border-black/10 dark:border-white/10 rounded-full w-fit touch-manipulation"
+              className="group flex items-center gap-3 font-bold hover:opacity-70 transition-opacity uppercase text-[10px] tracking-[0.2em] py-4 px-8 border border-black/10 dark:border-white/10 rounded-full w-fit touch-manipulation"
             >
               <ArrowDown size={14} className="group-hover:translate-y-1 transition-transform" /> 
               {t('about.resume')}

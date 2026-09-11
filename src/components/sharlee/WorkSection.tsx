@@ -20,7 +20,7 @@ export const WorkSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-baseline border-b border-black/10 dark:border-white/10 pb-4 mb-8">
           <h1 className="text-6xl md:text-8xl font-bold uppercase tracking-tighter text-black dark:text-white">{t('work.title')}</h1>
-          <span className="text-xl font-medium text-black/40 dark:text-white/40">{projects.length}</span>
+          <span className="text-xl font-medium text-black/60 dark:text-white/60">{projects.length}</span>
         </div>
 
         <div className="flex flex-col">
@@ -36,7 +36,7 @@ export const WorkSection = () => {
                   {project.title}
                 </span>
               </div>
-              <span className="text-[10px] md:text-base font-medium text-black/40 dark:text-white/40 uppercase tracking-widest md:ml-4">
+              <span className="text-[10px] md:text-base font-medium text-black/60 dark:text-white/60 uppercase tracking-widest md:ml-4">
                 {project.category}
               </span>
             </a>

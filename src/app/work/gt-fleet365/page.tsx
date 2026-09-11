@@ -36,7 +36,7 @@ const StepTracker = ({ language }: { language: 'IT' | 'EN' }) => {
               {step}
             </div>
             {index < steps.length - 1 && (
-              <span className="text-black/30 dark:text-white/30 text-lg font-bold font-mono">↓</span>
+              <span className="text-black/60 dark:text-white/60 text-lg font-bold font-mono">↓</span>
             )}
           </React.Fragment>
         ))}
@@ -50,7 +50,7 @@ const StepTracker = ({ language }: { language: 'IT' | 'EN' }) => {
               {step}
             </div>
             {index < steps.length - 1 && (
-              <span className="text-black/30 dark:text-white/30 text-sm font-bold font-mono">➔</span>
+              <span className="text-black/60 dark:text-white/60 text-sm font-bold font-mono">➔</span>
             )}
           </React.Fragment>
         ))}

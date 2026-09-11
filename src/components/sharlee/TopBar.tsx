@@ -66,7 +66,7 @@ export const TopBar = () => {
                 >
                   <span className={cn(
                     "text-[10px] font-mono font-bold tracking-[0.2em] transition-colors",
-                    isActive ? "text-black dark:text-white" : "text-black/60 dark:text-white/50 group-hover:text-black dark:group-hover:text-white"
+                    isActive ? "text-black dark:text-white" : "text-black/60 dark:text-white/60 group-hover:text-black dark:group-hover:text-white"
                   )}>
                     {item.label}
                   </span>
