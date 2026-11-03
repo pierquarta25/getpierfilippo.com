@@ -4,21 +4,92 @@ import { rateLimit } from '@/lib/rate-limit';
 
 const limiter = rateLimit(10, 60000); // 10 richieste al minuto
 
-// Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
 
-export async function POST(req: Request) {
-  // Check Rate Limit
-  const ip = req.headers.get('x-forwarded-for') ?? '127.0.0.1';
-  const isAllowed = limiter(ip);
+const ALLOWED_ORIGIN = 'https://www.getpierfilippo.com';
 
+function getCorsHeaders(origin: string | null) {
+  const allowed = origin === ALLOWED_ORIGIN || process.env.NODE_ENV === 'development';
+  return {
+    'Access-Control-Allow-Origin': allowed ? (origin ?? ALLOWED_ORIGIN) : ALLOWED_ORIGIN,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  };
+}
+
+export async function OPTIONS(req: Request) {
+  const origin = req.headers.get('origin');
+  return new Response(null, { status: 204, headers: getCorsHeaders(origin) });
+}
+
+export async function POST(req: Request) {
+  const origin = req.headers.get('origin');
+  const corsHeaders = getCorsHeaders(origin);
+
+  // IP: preferisci header impostati dall'infrastruttura (non falsificabili su Vercel)
+  const ip =
+    req.headers.get('x-real-ip') ??
+    req.headers.get('x-forwarded-for')?.split(',')[0].trim() ??
+    '127.0.0.1';
+
+  const isAllowed = limiter(ip);
   if (!isAllowed) {
     return new Response('Rate limit exceeded. Please try again later.', {
       status: 429,
+      headers: corsHeaders,
     });
   }
 
-  const { messages } = await req.json();
+  let body: unknown;
+  try {
+    body = await req.json();
+  } catch {
+    return new Response('Invalid JSON', { status: 400, headers: corsHeaders });
+  }
+
+  // Validazione struttura
+  if (
+    typeof body !== 'object' ||
+    body === null ||
+    !Array.isArray((body as { messages?: unknown }).messages)
+  ) {
+    return new Response('Invalid request body', { status: 400, headers: corsHeaders });
+  }
+
+  const rawMessages = (body as { messages: unknown[] }).messages;
+
+  // Limite numero messaggi
+  if (rawMessages.length > 20) {
+    return new Response('Too many messages', { status: 400, headers: corsHeaders });
+  }
+
+  type RawMessage = {
+    role: string;
+    content?: string;
+    parts?: { type: string; text: string }[];
+  };
+
+  // Sanitizzazione: solo role user/assistant, contenuto stringa troncato a 2000 char
+  const messages = rawMessages
+    .filter((m): m is RawMessage =>
+      typeof m === 'object' &&
+      m !== null &&
+      typeof (m as RawMessage).role === 'string' &&
+      (typeof (m as RawMessage).content === 'string' ||
+        Array.isArray((m as RawMessage).parts))
+    )
+    .map((m) => {
+      const role = m.role === 'user' ? 'user' : 'assistant';
+      const content =
+        typeof m.content === 'string'
+          ? m.content.slice(0, 2000)
+          : m.parts?.find((p) => p.type === 'text')?.text?.slice(0, 2000) ?? '';
+      return { role, content };
+    });
+
+  if (messages.length === 0) {
+    return new Response('No valid messages', { status: 400, headers: corsHeaders });
+  }
 
   const systemPrompt = `
 Sei l'assistente virtuale del sito portfolio di Pierfilippo Quartarella.
@@ -41,8 +112,8 @@ Competenze Tecniche:
 
 Esperienze Professionali:
 1. Software Developer (Stage) | MacNil S.R.L, Gravina in Puglia (BA) | 04/2026 – In corso | Full-time
-   - Gestito in completa autonomia l’intero ciclo di sviluppo di 4 progetti digitali aziendali, prendendo in carico i requisiti tecnici assegnati dalla referente e traducendoli in soluzioni software funzionanti e approvate internamente.
-   - Sviluppato architetture Full Stack (React / Laravel) e script di automazione, focalizzandomi sull’integrazione di API (Google Gemini, HubSpot CRM) e sistemi di estrazione dati per ottimizzare i processi aziendali.
+   - Gestito in completa autonomia l'intero ciclo di sviluppo di 4 progetti digitali aziendali, prendendo in carico i requisiti tecnici assegnati dalla referente e traducendoli in soluzioni software funzionanti e approvate internamente.
+   - Sviluppato architetture Full Stack (React / Laravel) e script di automazione, focalizzandomi sull'integrazione di API (Google Gemini, HubSpot CRM) e sistemi di estrazione dati per ottimizzare i processi aziendali.
 
 2. Personal Trainer | Up Level Altamura - Light S.r.l Matera | 2022-2025
    - Gestito in autonomia un portfolio di clienti con pianificazione di percorsi personalizzati e monitoraggio dei progressi nel tempo.
@@ -74,16 +145,18 @@ Istruzioni Comportamentali:
 - Non inventare MAI informazioni che non sono scritte in questo prompt.
 `;
 
-  const coreMessages = messages.map((m: any) => ({
-    role: m.role,
-    content: m.content || m.parts?.find((p: any) => p.type === 'text')?.text || '',
-  }));
-
   const result = streamText({
     model: google('gemini-2.5-flash'),
     system: systemPrompt,
-    messages: coreMessages,
+    messages,
   });
 
-  return result.toUIMessageStreamResponse();
+  const response = result.toUIMessageStreamResponse();
+
+  // Aggiunge CORS headers alla risposta streaming
+  Object.entries(corsHeaders).forEach(([key, value]) => {
+    response.headers.set(key, value);
+  });
+
+  return response;
 }
