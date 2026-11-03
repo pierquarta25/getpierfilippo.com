@@ -87,8 +87,8 @@ export async function POST(req: Request) {
       (typeof (m as RawMessage).content === 'string' ||
         Array.isArray((m as RawMessage).parts))
     )
-    .map((m) => {
-      const role: 'user' | 'assistant' = m.role === 'user' ? 'user' : 'assistant';
+    .map((m): { role: 'user' | 'assistant'; content: string } => {
+      const role = m.role === 'user' ? 'user' : 'assistant';
       const content =
         typeof m.content === 'string'
           ? m.content.slice(0, 2000)
