@@ -1,15 +1,19 @@
 import { google } from '@ai-sdk/google';
 import { streamText } from 'ai';
-import { rateLimit } from '@/lib/rate-limit';
+import { distributedRateLimit } from '@/lib/rate-limit';
 
-const limiter = rateLimit(10, 60000); // 10 richieste al minuto
+const limiter = distributedRateLimit(10, 60000); // 10 richieste al minuto
 
 export const maxDuration = 30;
 
 const ALLOWED_ORIGIN = 'https://www.getpierfilippo.com';
 
+function isOriginAllowed(origin: string | null) {
+  return origin === ALLOWED_ORIGIN || process.env.NODE_ENV === 'development';
+}
+
 function getCorsHeaders(origin: string | null) {
-  const allowed = origin === ALLOWED_ORIGIN || process.env.NODE_ENV === 'development';
+  const allowed = isOriginAllowed(origin);
   return {
     'Access-Control-Allow-Origin': allowed ? (origin ?? ALLOWED_ORIGIN) : ALLOWED_ORIGIN,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -26,13 +30,18 @@ export async function POST(req: Request) {
   const origin = req.headers.get('origin');
   const corsHeaders = getCorsHeaders(origin);
 
+  // Origini diverse dal sito (se dichiarate) vengono rifiutate prima di consumare token
+  if (origin && !isOriginAllowed(origin)) {
+    return new Response('Forbidden', { status: 403, headers: corsHeaders });
+  }
+
   // IP: preferisci header impostati dall'infrastruttura (non falsificabili su Vercel)
   const ip =
     req.headers.get('x-real-ip') ??
     req.headers.get('x-forwarded-for')?.split(',')[0].trim() ??
     '127.0.0.1';
 
-  const isAllowed = limiter(ip);
+  const isAllowed = await limiter(ip);
   if (!isAllowed) {
     return new Response('Rate limit exceeded. Please try again later.', {
       status: 429,
