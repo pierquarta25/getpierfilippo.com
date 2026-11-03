@@ -9,11 +9,11 @@ export const WorkSection = () => {
   const { t } = useLanguage();
 
   const projects = [
-    { title: 'getpierfilippo.com', category: t('work.category.portfolio'), slug: 'getpierfilippo-com', thumbnail: '/work/getpierfilippo-com/media/work1.png' },
-    { title: 'MacNil Contact Manager', category: t('work.category.mobile'), slug: 'macnil-contact-manager', thumbnail: null },
-    { title: 'GtFleet365', category: t('work.category.fleet'), slug: 'gt-fleet365', thumbnail: '/work/gt-fleet365/media/work5.png' },
-    { title: 'Iveco Scraper', category: t('work.category.scraper'), slug: 'iveco-scraper', thumbnail: null },
-    { title: 'LeadGen', category: t('work.category.software'), slug: 'leadgen', thumbnail: '/work/leadgen/media/work8.png' },
+    { title: 'getpierfilippo.com', category: t('work.category.portfolio'), slug: 'getpierfilippo-com', stack: ['Next.js', 'TypeScript', 'Tailwind CSS'], thumbnail: '/work/getpierfilippo-com/media/work1.png' },
+    { title: 'MacNil Contact Manager', category: t('work.category.mobile'), slug: 'macnil-contact-manager', stack: ['Next.js', 'Supabase', 'Gemini AI'], thumbnail: null },
+    { title: 'GtFleet365', category: t('work.category.fleet'), slug: 'gt-fleet365', stack: ['React', 'Laravel', 'HubSpot API'], thumbnail: '/work/gt-fleet365/media/work5.png' },
+    { title: 'Iveco Scraper', category: t('work.category.scraper'), slug: 'iveco-scraper', stack: ['Python', 'Pandas', 'API Reverse Engineering'], thumbnail: null },
+    { title: 'LeadGen', category: t('work.category.software'), slug: 'leadgen', stack: ['Python', 'Laravel', 'Gemini AI'], thumbnail: '/work/leadgen/media/work8.png' },
   ];
 
   return (
@@ -45,26 +45,33 @@ export const WorkSection = () => {
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-300"
                     />
                   ) : (
-                    // Blueprint grid placeholder for projects without screenshots
-                    <div className="w-full h-full relative overflow-hidden">
-                      <svg width="88" height="56" className="absolute inset-0 opacity-30 dark:opacity-20">
+                    // Blueprint placeholder for projects without screenshots
+                    <div className="w-full h-full relative overflow-hidden text-black dark:text-white">
+                      <svg viewBox="0 0 88 56" className="absolute inset-0 w-full h-full" aria-hidden="true">
                         <defs>
                           <pattern id={`grid-${i}`} width="8" height="8" patternUnits="userSpaceOnUse">
-                            <path d="M 8 0 L 0 0 0 8" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+                            <path d="M 8 0 L 0 0 0 8" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.18"/>
                           </pattern>
                         </defs>
                         <rect width="88" height="56" fill={`url(#grid-${i})`}/>
+                        <path d="M 4 12 V 4 H 12 M 76 4 H 84 V 12 M 84 44 V 52 H 76 M 12 52 H 4 V 44" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
+                        <path d="M 16 46 H 72 M 16 43 V 49 M 72 43 V 49" fill="none" stroke="currentColor" strokeWidth="0.6" opacity="0.35"/>
                       </svg>
-                      <span className="absolute inset-0 flex items-center justify-center text-[7px] font-mono uppercase tracking-widest opacity-30 dark:opacity-20">
-                        {project.title.slice(0, 3).toUpperCase()}
+                      <span className="absolute inset-0 flex items-center justify-center pb-3 text-[13px] font-mono font-bold uppercase tracking-widest opacity-60">
+                        {project.title.split(' ').map((w) => w[0]).join('').slice(0, 3).toUpperCase()}
                       </span>
                     </div>
                   )}
                 </div>
 
-                <span className="text-2xl md:text-5xl font-medium tracking-tight group-hover:text-black/60 dark:group-hover:text-white/60 transition-colors uppercase break-words">
-                  {project.title}
-                </span>
+                <div className="flex flex-col gap-1 min-w-0">
+                  <span className="text-2xl md:text-5xl font-medium tracking-tight group-hover:text-black/60 dark:group-hover:text-white/60 transition-colors uppercase break-words">
+                    {project.title}
+                  </span>
+                  <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.15em] text-black/60 dark:text-white/60">
+                    {project.stack.join(' · ')}
+                  </span>
+                </div>
               </div>
               <span className="text-[10px] md:text-base font-medium text-black/60 dark:text-white/60 uppercase tracking-widest md:ml-4">
                 {project.category}
