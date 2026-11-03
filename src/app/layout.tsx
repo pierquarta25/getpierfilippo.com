@@ -21,9 +21,9 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Pierfilippo Quartarella | Full Stack Developer",
-  description: "Portfolio di Pierfilippo Quartarella, Junior Full Stack Developer specializzato in React.js, Next.js, TypeScript, PHP, Laravel e sviluppo di automazioni AI.",
+  description: "Portfolio di Pierfilippo Quartarella, Full Stack Developer specializzato in React.js, Next.js, TypeScript, PHP, Laravel e sviluppo di automazioni AI.",
   openGraph: {
-    title: "Pierfilippo Quartarella | Junior Full Stack Developer",
+    title: "Pierfilippo Quartarella | Full Stack Developer",
     description: "Sviluppo applicazioni web moderne, piattaforme B2B e automazioni con integrazione AI.",
     url: "https://www.getpierfilippo.com",
     siteName: "Pierfilippo Quartarella Portfolio",
@@ -41,7 +41,7 @@ export default function RootLayout({
     "@type": "Person",
     "name": "Pierfilippo Quartarella",
     "url": "https://www.getpierfilippo.com",
-    "jobTitle": "Junior Full Stack Developer",
+    "jobTitle": "Full Stack Developer",
     "knowsAbout": [
       "React.js",
       "Next.js",
