@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Junior Full Stack Developer | React.js, Next.js, TypeScript, PHP e Laravel | Sviluppo applicazioni web moderne e automazioni AI",
+  title: "Pierfilippo Quartarella | Full Stack Developer",
   description: "Portfolio di Pierfilippo Quartarella, Junior Full Stack Developer specializzato in React.js, Next.js, TypeScript, PHP, Laravel e sviluppo di automazioni AI.",
   openGraph: {
     title: "Pierfilippo Quartarella | Junior Full Stack Developer",

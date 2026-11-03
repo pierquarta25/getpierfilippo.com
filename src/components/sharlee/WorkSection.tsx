@@ -35,11 +35,11 @@ export const WorkSection = () => {
                 <ArrowRight className="hidden md:block opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-[opacity,transform] duration-300 flex-shrink-0" />
 
                 {/* Thumbnail */}
-                <div className="hidden md:flex w-[88px] h-[56px] flex-shrink-0 overflow-hidden border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.02]">
+                <div className="flex w-[64px] h-[40px] md:w-[88px] md:h-[56px] flex-shrink-0 overflow-hidden border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.02]">
                   {project.thumbnail ? (
                     <Image
                       src={project.thumbnail}
-                      alt={project.title}
+                      alt={`${project.title} — ${project.category}`}
                       width={88}
                       height={56}
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-300"

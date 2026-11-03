@@ -42,7 +42,7 @@ export const HeroSection = () => {
             <ArrowRight size={14} />
           </Link>
           <Link 
-            href="/contact" 
+            href="/about" 
             className="flex items-center justify-center gap-3 border border-black/20 dark:border-white/20 bg-transparent text-black dark:text-white hover:bg-black/[0.03] dark:hover:bg-white/[0.03] transition-colors px-8 py-4 text-xs font-mono font-bold tracking-[0.2em] uppercase rounded-none w-full sm:w-auto"
           >
             {t('hero.about')}

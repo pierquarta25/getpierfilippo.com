@@ -21,7 +21,7 @@ export const AboutSection = () => {
         <div className="absolute inset-x-0 top-0 h-[70%] lg:hidden pointer-events-none overflow-hidden">
           <Image 
             src="/media/pierfilippo-portrait.webp"
-            alt="Pierfilippo Quartarella Background"
+            alt=""
             fill
             className="object-cover grayscale opacity-60 dark:opacity-20 transition-opacity duration-1000"
             loading="lazy"
@@ -35,7 +35,7 @@ export const AboutSection = () => {
           
           {/* Image Content - Desktop Only */}
           <div className="hidden lg:flex lg:col-span-5 items-center justify-center order-last lg:-translate-y-8">
-            <div className="relative w-full aspect-[4/5] bg-black/5 dark:bg-white/5 rounded-[40px] overflow-hidden group shadow-2xl border border-black/5 dark:border-white/5">
+            <div className="relative w-full aspect-[4/5] bg-black/5 dark:bg-white/5 rounded-none overflow-hidden group border border-black/20 dark:border-white/20">
               <Image 
                 src="/media/pierfilippo-portrait.webp"
                 alt="Pierfilippo Quartarella"
@@ -64,7 +64,7 @@ export const AboutSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 border-t border-black/10 dark:border-white/10 relative">
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-black dark:text-white">
-                <div className="p-2 bg-black/5 dark:bg-white/5 rounded-lg">
+                <div className="p-2 bg-black/5 dark:bg-white/5 rounded-none">
                   <CodeXml size={20} />
                 </div>
                 <span className="font-bold uppercase text-xs tracking-widest">{t('about.logic')}</span>
@@ -78,7 +78,7 @@ export const AboutSection = () => {
 
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-black dark:text-white">
-                <div className="p-2 bg-black/5 dark:bg-white/5 rounded-lg">
+                <div className="p-2 bg-black/5 dark:bg-white/5 rounded-none">
                   <Dumbbell size={20} />
                 </div>
                 <span className="font-bold uppercase text-xs tracking-widest">{t('about.performance')}</span>
