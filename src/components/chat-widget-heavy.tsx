@@ -22,7 +22,7 @@ export function ChatWidgetHeavy({ isOpen, setIsOpen }: { isOpen: boolean; setIsO
   if (!isOpen) return null;
 
   return (
-    <Card className="w-80 sm:w-96 mb-4 shadow-2xl border-primary/20 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <Card className="w-80 sm:w-96 mb-4 rounded-none border border-black/20 dark:border-white/20 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <CardHeader className="flex flex-row items-center justify-between pb-3 border-b">
         <CardTitle className="text-lg font-bold flex items-center gap-2">
           <MessageCircle className="h-5 w-5 text-primary" />
