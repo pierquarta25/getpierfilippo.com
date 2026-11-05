@@ -71,7 +71,7 @@ export const AboutSection = () => {
               </div>
               <ul className="text-[10px] font-mono space-y-2 opacity-70 uppercase tracking-tight">
                 <li>{`> ReactJs, Angular & TS`}</li>
-                <li>{`> Full Stack & Python`}</li>
+                <li>{`> Full Stack & Laravel`}</li>
                 <li>{`> Problem Solving & Agile`}</li>
               </ul>
             </div>
