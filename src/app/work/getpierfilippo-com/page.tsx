@@ -10,42 +10,42 @@ export default function GetPierfilippoPage() {
 
   const seo = {
     IT: {
-      title: "Pierfilippo Quartarella | Sviluppo Web con Next.js 16 e Tailwind CSS",
-      description: "Scopri come ho realizzato il mio portfolio professionale usando Next.js 16, TypeScript e Tailwind CSS v4. Un esempio di design moderno e performance estreme."
+      title: "getpierfilippo.com | Portfolio in Next.js 16 e Tailwind 4",
+      description: "Come ho costruito questo portfolio: Next.js 16, TypeScript, Tailwind CSS v4, i18n italiano/inglese, dark mode e chat AI integrata."
     },
     EN: {
-      title: "Pierfilippo Quartarella | Web Development with Next.js 16 & Tailwind CSS",
-      description: "Explore how I built my professional portfolio using Next.js 16, TypeScript, and Tailwind CSS v4. A showcase of modern design and top-tier performance."
+      title: "getpierfilippo.com | Next.js 16 and Tailwind v4 Portfolio",
+      description: "How I built this portfolio: Next.js 16, TypeScript, Tailwind CSS v4, Italian/English i18n, dark mode and a built-in AI chat."
     }
   };
 
   const content = {
     IT: {
       category: t('work.category.portfolio'),
-      description: "Un ecosistema digitale all'avanguardia progettato per riflettere la mia identità professionale. Costruito con Next.js 16 e Tailwind CSS v4, questo spazio non è solo una vetrina, ma un esempio tangibile del mio impegno verso performance estreme e design pulito.",
+      description: "Il mio portfolio, costruito con Next.js 16 e Tailwind CSS v4. Non volevo solo una vetrina: volevo un sito veloce e con un design pulito, che mostrasse anche come lavoro.",
       role: "Lead Developer & Designer",
       year: "2026",
       status: "Attivo",
       markdown: `
 ## Obiettivi del Progetto
-L'obiettivo principale era creare una piattaforma che non solo mostrasse i miei lavori, ma che fungesse da benchmark tecnico. Ho voluto esplorare i confini di Next.js 16 e della nuova versione di Tailwind CSS per ottenere tempi di caricamento istantanei.
+Volevo un sito che mostrasse i miei lavori e che fosse anche una prova tecnica. Ho usato Next.js 16 e la nuova versione di Tailwind CSS per tenere i tempi di caricamento al minimo.
 
 ## Sfide Tecniche
-Implementazione di un sistema di internazionalizzazione (i18n) fluido e di una modalità scura che rispetti le preferenze di sistema dell'utente senza flash di contenuti non stilizzati.
+Ho scritto un sistema i18n per italiano e inglese e una modalità scura che segue le preferenze del sistema, senza il flash di contenuto non stilizzato al caricamento.
       `
     },
     EN: {
       category: t('work.category.portfolio'),
-      description: "A cutting-edge digital ecosystem designed to reflect my professional identity. Built with Next.js 16 and Tailwind CSS v4, this space is not just a showcase, but a tangible example of my commitment to extreme performance and clean design.",
+      description: "This is my portfolio, built with Next.js 16 and Tailwind CSS v4. I didn't want just a showcase: I wanted a fast site with a clean design that also shows how I work.",
       role: "Lead Developer & Designer",
       year: "2026",
       status: "Active",
       markdown: `
 ## Project Goals
-The main objective was to create a platform that not only showcased my work but also served as a technical benchmark. I wanted to explore the boundaries of Next.js 16 and the new version of Tailwind CSS to achieve instantaneous loading times.
+I wanted a site that showed my work and doubled as a technical test. I used Next.js 16 and the new version of Tailwind CSS to keep load times as low as possible.
 
 ## Technical Challenges
-Implementation of a fluid internationalization (i18n) system and a dark mode that respects user system preferences without unstyled content flashes.
+I built an i18n system for Italian and English, plus a dark mode that follows the system setting without a flash of unstyled content on load.
       `
     }
   };

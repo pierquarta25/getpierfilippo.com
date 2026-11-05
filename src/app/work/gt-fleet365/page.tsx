@@ -64,54 +64,54 @@ export default function GtFleetPage() {
 
   const seo = {
     IT: {
-      title: "GT Fleet 365 | Configuratore Flotta con Integrazione HubSpot",
-      description: "Sviluppo di una Single Page Application (SPA) per la configurazione interattiva e digitale dei veicoli aziendali, con sincronizzazione automatica dei lead su CRM HubSpot. Frontend in React 19 e backend in Laravel 13 per MacNil S.r.l."
+      title: "GtFleet365 | Configuratore flotte React e Laravel",
+      description: "SPA in React 19 e Laravel per configurare flotte aziendali: link per commerciale, validazione, PDF, email e sincronizzazione lead con HubSpot."
     },
     EN: {
-      title: "GT Fleet 365 | Fleet Configurator with HubSpot Integration",
-      description: "Development of a Single Page Application (SPA) for the interactive and digital configuration of company fleets, with automatic lead synchronization to HubSpot CRM. Built with React 19 frontend and Laravel 13 backend for MacNil S.r.l."
+      title: "GtFleet365 | Fleet Configurator with React and Laravel",
+      description: "React 19 and Laravel SPA to configure company fleets: per-salesperson links, validation, PDF, email and lead sync to HubSpot."
     }
   };
 
   const content = {
     IT: {
       category: "Enterprise Solution",
-      description: "Trasformazione digitale dei processi di vendita per MacNil. Questa dashboard enterprise permette la configurazione dinamica di flotte aziendali, integrando validazioni intelligenti e sincronizzazione real-time con HubSpot per eliminare gli errori umani.",
+      description: "Un configuratore di flotte aziendali per il team vendite di MacNil. Guida il venditore passo dopo passo, controlla i dati man mano che li inserisce e li sincronizza con HubSpot, così nessuno deve ricopiarli a mano.",
       role: "Full Stack Developer Intern · Frontend & API Integration",
       year: "2026",
       status: "Completato",
       markdown: `
 ## Digitalizzazione del Processo di Vendita
-Il progetto è nato dall'esigenza di MacNil di automatizzare e rendere più affidabile la creazione di offerte commerciali per la gestione delle flotte. Ho sviluppato un'applicazione Single Page (SPA) che guida il venditore attraverso una configurazione multi-step.
+MacNil voleva creare le offerte per le flotte in modo più rapido e con meno errori. Ho sviluppato una Single Page Application (SPA) che accompagna il venditore in una configurazione a più passaggi.
 
 ## Funzionalità Chiave
-- **Link personalizzato:** Generazione di un link univoco per ciascun commerciale per tracciare le performance.
-- **Salvataggio Automatico:** Implementazione del LocalStorage per prevenire la perdita di dati durante la compilazione.
-- **Validazione Dinamica:** Feedback immediato a livello di interfaccia basato su complesse regole di business aziendali.
-- **Associazione della Pratica:** Associazione automatica del lead e della pratica al referente commerciale corretto.
-- **PDF Riepilogativo:** Generazione istantanea di un PDF riepilogativo scaricabile dall'utente o dal commerciale.
-- **Email di Riepilogo:** Invio automatico di una notifica email strutturata con tutti i dettagli della configurazione.
-- **Sincronizzazione CRM:** Integrazione in tempo reale con HubSpot CRM per eliminare il data-entry manuale.
+- **Link personalizzato:** Ogni commerciale ha un link univoco, così si possono tracciare le sue vendite.
+- **Salvataggio Automatico:** Uso il LocalStorage per non far perdere i dati se si chiude la pagina a metà compilazione.
+- **Validazione Dinamica:** L'interfaccia segnala subito gli errori, in base alle regole di business dell'azienda.
+- **Associazione della Pratica:** Il lead e la pratica vengono assegnati in automatico al commerciale giusto.
+- **PDF Riepilogativo:** Un PDF di riepilogo, generato subito, che il cliente o il commerciale può scaricare.
+- **Email di Riepilogo:** Parte in automatico un'email con tutti i dettagli della configurazione.
+- **Sincronizzazione CRM:** Integrazione in tempo reale con HubSpot CRM, senza data-entry manuale.
       `
     },
     EN: {
       category: "Enterprise Solution",
-      description: "Digital transformation of sales processes for MacNil. This enterprise dashboard enables dynamic fleet configuration, integrating intelligent validations and real-time HubSpot synchronization to eliminate human error.",
+      description: "A company fleet configurator for the MacNil sales team. It walks the salesperson through each step, checks the data as it is entered, and syncs it to HubSpot so nobody has to copy it by hand.",
       role: "Full Stack Developer Intern · Frontend & API Integration",
       year: "2026",
       status: "Completed",
       markdown: `
 ## Sales Process Digitization
-The project was born from MacNil's need to automate and make more reliable the creation of commercial offers for fleet management. I developed a Single Page Application (SPA) that guides the salesperson through a multi-step configuration.
+MacNil wanted to build fleet offers faster and with fewer mistakes. I developed a Single Page Application (SPA) that takes the salesperson through a multi-step configuration.
 
 ## Key Features
-- **Personalized link:** Generation of a unique link for each salesperson to track sales performance.
-- **Auto-save:** LocalStorage implementation to prevent data loss during multi-step configuration.
-- **Dynamic Validation:** Immediate interface feedback based on complex business logic rules.
-- **Application Association:** Automatic lead and file association to the correct commercial contact.
-- **Summary PDF:** Instant generation of a downloadable summary PDF document.
-- **Confirmation Email:** Automated delivery of a structured configuration recap email.
-- **CRM Sync:** Real-time bi-directional integration with HubSpot CRM to eliminate manual data entry.
+- **Personalized link:** Each salesperson gets a unique link, so their sales can be tracked.
+- **Auto-save:** LocalStorage keeps the data if someone closes the page halfway through.
+- **Dynamic Validation:** The interface flags errors right away, based on the company's business rules.
+- **Application Association:** Leads and files are assigned automatically to the right salesperson.
+- **Summary PDF:** A summary PDF, generated instantly, ready to download.
+- **Confirmation Email:** An email with the full configuration recap goes out automatically.
+- **CRM Sync:** Real-time two-way integration with HubSpot CRM, no manual data entry.
       `
     }
   };

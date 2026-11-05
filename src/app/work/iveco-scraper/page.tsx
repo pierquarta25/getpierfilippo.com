@@ -10,48 +10,48 @@ export default function IvecoScraperPage() {
 
   const seo = {
     IT: {
-      title: "Iveco Scraper | Estrazione & Analisi Dati Concessionari",
-      description: "Script CLI Python per l'estrazione automatizzata dei dati di tutti i concessionari Iveco in Italia tramite reverse engineering e scraping."
+      title: "Iveco Scraper | Script Python per dati concessionari",
+      description: "CLI in Python che estrae e normalizza i dati dei concessionari Iveco in Italia con Requests e Pandas, ed esporta report Excel con OpenPyXL."
     },
     EN: {
-      title: "Iveco Scraper | Dealership Data Extraction & Analysis",
-      description: "Python CLI script for automated data extraction of all Iveco dealerships in Italy via reverse engineering and web scraping."
+      title: "Iveco Scraper | Python Dealership Data Script",
+      description: "Python CLI that extracts and normalizes Iveco dealership data in Italy with Requests and Pandas, and exports Excel reports with OpenPyXL."
     }
   };
 
   const content = {
     IT: {
       category: t('work.category.scraper'),
-      description: "Script CLI professionale per il recupero massivo e l'analisi dei dati geografici e di contatto di tutta la rete di concessionari Iveco in Italia, sviluppato attraverso tecniche avanzate di reverse engineering.",
+      description: "Uno script CLI in Python che raccoglie i dati di contatto e di posizione di tutti i concessionari Iveco in Italia. Per trovare i dati ho fatto reverse engineering del localizzatore ufficiale.",
       role: "Full Stack Developer Intern · Data Automation",
       year: "2026",
       status: "Completato",
       markdown: `
 ## Obiettivi del Progetto
-Il progetto risponde alla necessità di estrarre in modo rapido e strutturato le informazioni di contatto, localizzazione e operatività di tutte le sedi di concessionari Iveco dislocate in Italia. Lo strumento è concepito per operare via riga di comando (CLI) per facilitare integrazioni future in pipeline ETL.
+Serviva estrarre in modo rapido e ordinato contatti, posizione e operatività di tutte le sedi dei concessionari Iveco in Italia. Ho fatto lo strumento da riga di comando (CLI), così si può inserire più avanti in una pipeline ETL.
 
 ## Dettagli Tecnici & Implementazione
-- **Reverse Engineering:** Analisi dei flussi di rete (XHR/Fetch) del localizzatore ufficiale per individuare gli endpoint API interni e ricostruire le query di richiesta dati.
-- **Data Cleansing & Normalization:** Utilizzo di **Pandas** per la pulizia dei dati grezzi ricevuti (rimozione duplicati, formattazione standard dei numeri telefonici ed email, normalizzazione dei CAP).
-- **Integrazione Geografica:** Database locale integrato con le coordinate delle province italiane per un sistema di filtraggio interattivo ed immediato.
-- **Esportazione Professionale:** Utilizzo di **OpenPyXL** per la generazione di report in formato Excel ordinati per regione o provincia.
+- **Reverse Engineering:** Ho analizzato le chiamate di rete (XHR/Fetch) del localizzatore ufficiale per trovare gli endpoint API interni e ricostruire le richieste.
+- **Data Cleansing & Normalization:** Con **Pandas** ripulisco i dati grezzi: tolgo i duplicati e uniformo telefoni, email e CAP.
+- **Integrazione Geografica:** Un database locale con le coordinate delle province italiane permette di filtrare i risultati al volo.
+- **Esportazione Professionale:** Con **OpenPyXL** genero report Excel ordinati per regione o provincia.
       `
     },
     EN: {
       category: t('work.category.scraper'),
-      description: "Professional CLI script for bulk retrieval and analysis of geographical and contact data for the entire Iveco dealership network in Italy, built using advanced reverse engineering.",
+      description: "A Python CLI script that collects contact and location data for every Iveco dealership in Italy. To get at the data, I reverse engineered the official dealer locator.",
       role: "Full Stack Developer Intern · Data Automation",
       year: "2026",
       status: "Completed",
       markdown: `
 ## Project Goals
-The project fulfills the need to quickly extract structured contact, location, and operational info for all Iveco dealership branches in Italy. The tool operates via command line (CLI) to ease future integrations into ETL pipelines.
+The goal was to pull contact, location, and operating details for every Iveco dealership branch in Italy, quickly and in a clean format. I built it as a command-line tool (CLI) so it can later plug into an ETL pipeline.
 
 ## Technical Details & Implementation
-- **Reverse Engineering:** Network flow analysis (XHR/Fetch) of the official locator to identify internal API endpoints and reconstruct data queries.
-- **Data Cleansing & Normalization:** Used **Pandas** for cleaning raw data (removing duplicates, standardizing phone/email formats, and normalizing postal codes).
-- **Geographic Integration:** Integrated local database with Italian province coordinates for an interactive filtering system.
-- **Professional Export:** Used **OpenPyXL** to generate formatted Excel reports sorted by region or province.
+- **Reverse Engineering:** I analyzed the network calls (XHR/Fetch) of the official locator to find its internal API endpoints and rebuild the requests.
+- **Data Cleansing & Normalization:** I clean the raw data with **Pandas**: I drop duplicates and standardize phone numbers, emails, and postal codes.
+- **Geographic Integration:** A local database of Italian province coordinates lets me filter results on the fly.
+- **Professional Export:** I use **OpenPyXL** to generate Excel reports sorted by region or province.
       `
     }
   };

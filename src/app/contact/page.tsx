@@ -2,8 +2,8 @@ import React from 'react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Contatti | Pierfilippo Quartarella' },
-  description: 'Scrivimi per un progetto o un’opportunità: email, LinkedIn, GitHub. Disponibile full time.',
+  title: { absolute: 'Contatti | Pierfilippo Quartarella, Full Stack Developer' },
+  description: 'Scrivimi per un’opportunità full time o un progetto web. Email, LinkedIn e GitHub di Pierfilippo Quartarella.',
 };
 
 import { ContactSection } from '@/components/sharlee/ContactSection';

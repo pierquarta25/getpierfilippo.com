@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: { absolute: 'Pierfilippo Quartarella | Full Stack Developer' },
-  description: 'Portfolio di Pierfilippo Quartarella: web app React, Next.js e Laravel, automazioni Python e strumenti AI. Disponibile full time.',
+  description: 'Full Stack Developer: sviluppo web con React, Next.js, TypeScript e Laravel, più automazioni Python e integrazioni AI. Disponibile full time.',
 };
 
 import { HeroSection } from '@/components/sharlee/HeroSection';

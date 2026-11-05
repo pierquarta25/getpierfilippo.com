@@ -10,50 +10,50 @@ export default function MacnilContactManagerPage() {
 
   const seo = {
     IT: {
-      title: "MacNil Contact Manager | Digitalizzazione Biglietti da Visita con AI",
-      description: "Web application mobile-first per scansionare biglietti da visita cartacei, estrarre contatti con Google Gemini AI e sincronizzarli su HubSpot."
+      title: "MacNil Contact Manager | Scanner biglietti da visita AI",
+      description: "Web app mobile-first in Next.js e Supabase: fotografa un biglietto da visita, Gemini estrae i contatti e li sincronizza su HubSpot CRM."
     },
     EN: {
-      title: "MacNil Contact Manager | AI-Powered Business Card Digitalization",
-      description: "Mobile-first web application to scan paper business cards, extract contact details with Google Gemini AI, and sync them to HubSpot."
+      title: "MacNil Contact Manager | AI Business Card Scanner",
+      description: "Mobile-first Next.js and Supabase web app: photograph a business card, Gemini extracts the contact and syncs it to HubSpot CRM."
     }
   };
 
   const content = {
     IT: {
       category: t('work.category.mobile'),
-      description: "Un'applicazione web serverless mobile-first che trasforma la fotocamera del telefono in uno scanner intelligente. Utilizza l'intelligenza artificiale di Google Gemini per analizzare i biglietti da visita, estrarne i contatti in formato strutturato e sincronizzarli all'istante su HubSpot CRM.",
+      description: "Una web app serverless mobile-first che usa la fotocamera del telefono come scanner. Google Gemini legge il biglietto da visita, ne ricava i contatti in formato strutturato e li invia subito a HubSpot CRM.",
       role: "Full Stack Developer Intern · AI Integration",
       year: "2026",
       status: "Completato",
       markdown: `
 ## Obiettivi del Progetto
-Sviluppato durante lo stage presso MacNil, questo applicativo risolve la necessità dei commerciali di digitalizzare rapidamente i contatti raccolti durante eventi e fiere direttamente dallo smartphone, eliminando il data-entry manuale.
+L'ho sviluppato durante lo stage in MacNil. Ai commerciali serviva un modo per digitalizzare subito, dallo smartphone, i contatti raccolti a eventi e fiere, senza data-entry manuale.
 
 ## Funzionalità & Architettura
-- **Scansione Mobile-First:** Alignment dell'interfaccia e dei componenti per l'acquisizione fotografica istantanea tramite browser mobile.
-- **Estrazione Dati con AI (Google Gemini):** Integrazione delle API di Gemini per il parsing OCR intelligente dell'immagine del biglietto da visita, restituendo un output JSON validato con nome, cognome, azienda, ruolo, e-mail e telefono.
-- **Architettura Serverless:** Backend costruito su **Supabase** sfruttando Row Level Security (RLS) per un controllo granulare e sicuro degli accessi.
-- **Sincronizzazione HubSpot:** Connessione bidirezionale in tempo reale che inserisce i contatti direttamente nel CRM di vendita aziendale.
-- **Dashboard Statistiche:** Monitoraggio continuo dello stato dei lead (es. contatti caldi, totali scansionati, contatti in attesa di sincronizzazione).
+- **Scansione Mobile-First:** Interfaccia pensata per scattare la foto direttamente dal browser del telefono.
+- **Estrazione Dati con AI (Google Gemini):** Le API di Gemini fanno l'OCR dell'immagine e restituiscono un JSON validato con nome, cognome, azienda, ruolo, e-mail e telefono.
+- **Architettura Serverless:** Backend su **Supabase**, con Row Level Security (RLS) per controllare in modo preciso chi accede a cosa.
+- **Sincronizzazione HubSpot:** Connessione bidirezionale in tempo reale: i contatti finiscono direttamente nel CRM di vendita dell'azienda.
+- **Dashboard Statistiche:** Una vista sempre aggiornata sullo stato dei lead: contatti caldi, totale scansionati, contatti in attesa di sincronizzazione.
       `
     },
     EN: {
       category: t('work.category.mobile'),
-      description: "A serverless mobile-first web application that turns the smartphone camera into an intelligent scanner. It utilizes Google Gemini AI to analyze business cards, extract structured contact details, and immediately sync them to HubSpot CRM.",
+      description: "A serverless, mobile-first web app that uses the phone camera as a scanner. Google Gemini reads the business card, pulls out the contact details in a structured format, and sends them straight to HubSpot CRM.",
       role: "Full Stack Developer Intern · AI Integration",
       year: "2026",
       status: "Completed",
       markdown: `
 ## Project Goals
-Developed during the internship at MacNil, this application helps sales agents quickly digitalize contacts gathered at events and trade shows directly from their smartphones, avoiding manual data entry.
+I built this during my internship at MacNil. Sales agents needed a way to digitize, right from their phones, the contacts they collected at events and trade shows, without manual data entry.
 
 ## Features & Architecture
-- **Mobile-First Scanning:** Interface and components optimized for quick photo capture directly from mobile browsers.
-- **AI-Powered Extraction (Google Gemini):** Integration of Gemini APIs for intelligent OCR parsing of card images, returning a structured JSON output with name, surname, company, role, email, and phone.
-- **Serverless Architecture:** Backend built on **Supabase** utilizing Row Level Security (RLS) for secure, granular access control.
-- **HubSpot Synchronization:** Real-time bi-directional integration that streams leads directly into the corporate sales CRM.
-- **Analytics Dashboard:** Continuous monitoring of lead status (e.g. hot leads, total scanned, pending synchronization).
+- **Mobile-First Scanning:** An interface built for taking the photo straight from the phone's browser.
+- **AI-Powered Extraction (Google Gemini):** The Gemini APIs run OCR on the card image and return validated JSON with name, surname, company, role, email, and phone.
+- **Serverless Architecture:** Backend on **Supabase**, with Row Level Security (RLS) to control exactly who can access what.
+- **HubSpot Synchronization:** Real-time two-way integration: contacts land directly in the company's sales CRM.
+- **Analytics Dashboard:** An always-current view of lead status: hot leads, total scanned, contacts pending sync.
       `
     }
   };
