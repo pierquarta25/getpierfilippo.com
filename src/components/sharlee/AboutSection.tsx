@@ -23,7 +23,7 @@ export const AboutSection = () => {
             src="/media/pierfilippo-portrait.webp"
             alt=""
             fill
-            className="object-cover grayscale opacity-60 dark:opacity-20 transition-opacity duration-1000"
+            className="object-cover opacity-60 dark:opacity-20 transition-opacity duration-1000"
             loading="lazy"
           />
           {/* Overlay gradiente radiale e lineare per far finire l'immagine in modo naturale */}
@@ -41,7 +41,7 @@ export const AboutSection = () => {
                 alt="Pierfilippo Quartarella"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover transition-[transform,filter] duration-700 group-hover:scale-105 grayscale hover:grayscale-0"
+                className="object-cover transition-[transform,filter] duration-700 group-hover:scale-105"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent dark:from-white/5 dark:to-transparent pointer-events-none group-hover:opacity-0 transition-opacity" />
